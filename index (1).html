@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dr. Suman Das — Assistant Professor, Chemistry</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #f5f2eb;
+      --bg2: #edeade;
+      --ink: #1a1a18;
+      --ink2: #4a4a42;
+      --ink3: #8a8a7a;
+      --accent: #2d6a4f;
+      --accent2: #52b788;
+      --accent3: #b7e4c7;
+      --gold: #c9a84c;
+      --card: #fffef9;
+      --border: #d8d4c8;
+      --shadow: 0 2px 24px rgba(26,26,24,0.08);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; overflow-x: hidden; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 4rem; background: rgba(245,242,235,0.88); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: 'DM Mono', monospace; font-size: 0.78rem; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 2.4rem; list-style: none; }
+    .nav-links a { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink2); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* HERO */
+    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 7rem 4rem 4rem; gap: 4rem; position: relative; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 80% 50%, rgba(82,183,136,0.12) 0%, transparent 70%), radial-gradient(ellipse 40% 50% at 10% 80%, rgba(201,168,76,0.08) 0%, transparent 60%); pointer-events: none; }
+    .hero-text { position: relative; }
+    .hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.7rem; }
+    .hero-eyebrow::before { content: ''; display: inline-block; width: 2rem; height: 1px; background: var(--accent); }
+    h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 5vw, 4.2rem); font-weight: 700; line-height: 1.1; color: var(--ink); margin-bottom: 0.4rem; }
+    .hero-title-role { font-family: 'Playfair Display', serif; font-size: clamp(1rem, 2vw, 1.3rem); font-weight: 400; font-style: italic; color: var(--ink3); margin-bottom: 1.8rem; }
+    .hero-bio { font-size: 1.05rem; color: var(--ink2); max-width: 46ch; margin-bottom: 2.5rem; font-weight: 300; line-height: 1.8; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.8rem; border-radius: 2px; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: #1e4d38; transform: translateY(-1px); }
+    .btn-outline { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+    .btn-outline:hover { background: var(--accent3); }
+
+    /* Hero visual */
+    .hero-visual { display: flex; justify-content: center; align-items: center; position: relative; }
+    .avatar-frame { width: 320px; height: 320px; border-radius: 50%; background: linear-gradient(135deg, var(--accent3) 0%, var(--bg2) 100%); display: flex; align-items: center; justify-content: center; position: relative; box-shadow: 0 0 0 12px var(--bg), 0 0 0 13px var(--border), var(--shadow); }
+    .avatar-frame::before { content: ''; position: absolute; inset: -20px; border-radius: 50%; border: 1px dashed var(--accent2); opacity: 0.4; animation: spin 30s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .avatar-initials { font-family: 'Playfair Display', serif; font-size: 5rem; font-weight: 700; color: var(--accent); opacity: 0.6; user-select: none; }
+    .hero-tags { position: absolute; bottom: -1.5rem; left: 50%; transform: translateX(-50%); display: flex; gap: 0.5rem; }
+    .tag { background: var(--card); border: 1px solid var(--border); padding: 0.3rem 0.9rem; border-radius: 20px; font-size: 0.72rem; font-family: 'DM Mono', monospace; color: var(--accent); white-space: nowrap; box-shadow: var(--shadow); }
+
+    /* STATS BAR */
+    .stats-bar { background: var(--accent); color: #fff; display: flex; justify-content: center; gap: 0; padding: 0; overflow: hidden; }
+    .stat-item { flex: 1; max-width: 220px; text-align: center; padding: 1.8rem 1rem; border-right: 1px solid rgba(255,255,255,0.15); }
+    .stat-item:last-child { border-right: none; }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; display: block; line-height: 1; margin-bottom: 0.3rem; }
+    .stat-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.75; font-family: 'DM Mono', monospace; }
+
+    /* SECTIONS */
+    section { padding: 6rem 4rem; }
+    section:nth-child(even) { background: var(--bg2); }
+    .section-header { margin-bottom: 3.5rem; }
+    .section-eyebrow { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.7rem; }
+    h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; color: var(--ink); line-height: 1.2; }
+    .section-line { width: 3rem; height: 2px; background: var(--gold); margin-top: 1rem; }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .about-text p { color: var(--ink2); margin-bottom: 1.2rem; font-size: 1rem; font-weight: 300; line-height: 1.85; }
+    .about-sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
+    .info-card { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--accent); padding: 1.4rem 1.6rem; border-radius: 0 4px 4px 0; }
+    .info-card h4 { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink3); margin-bottom: 0.6rem; }
+    .info-card p, .info-card a { font-size: 0.93rem; color: var(--ink); font-weight: 400; text-decoration: none; line-height: 1.7; }
+    .info-card a:hover { color: var(--accent); }
+
+    /* RESEARCH */
+    .research-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 1.5rem; margin-bottom: 4rem; }
+    .research-card { background: var(--card); border: 1px solid var(--border); border-radius: 4px; padding: 2rem; position: relative; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
+    .research-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .research-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent2)); }
+    .research-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+    .research-card h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 0.7rem; color: var(--ink); }
+    .research-card p { font-size: 0.88rem; color: var(--ink3); line-height: 1.7; }
+
+    /* Publications */
+    .pub-list { display: flex; flex-direction: column; gap: 1rem; }
+    .pub-item { background: var(--card); border: 1px solid var(--border); border-radius: 4px; padding: 1.4rem 1.8rem; display: grid; grid-template-columns: auto 1fr auto; gap: 1.2rem; align-items: center; transition: border-color 0.2s; }
+    .pub-item:hover { border-color: var(--accent2); }
+    .pub-year { font-family: 'DM Mono', monospace; font-size: 0.8rem; color: var(--accent); font-weight: 500; min-width: 3rem; }
+    .pub-info h4 { font-size: 0.92rem; font-weight: 500; color: var(--ink); margin-bottom: 0.25rem; line-height: 1.4; }
+    .pub-info p { font-size: 0.78rem; color: var(--ink3); font-style: italic; }
+    .pub-badge { font-family: 'DM Mono', monospace; font-size: 0.62rem; padding: 0.25rem 0.7rem; border-radius: 20px; background: var(--accent3); color: var(--accent); white-space: nowrap; text-transform: uppercase; letter-spacing: 0.06em; align-self: start; }
+    .pub-badge.conf { background: #fef3c7; color: #92400e; }
+    .pub-badge.book { background: #e0e7ff; color: #3730a3; }
+    .pub-note { font-size: 0.72rem; font-family: 'DM Mono', monospace; color: var(--gold); margin-top: 0.2rem; }
+
+    /* Awards */
+    .awards-list { display: flex; flex-direction: column; gap: 0.9rem; margin-top: 3rem; }
+    .award-item { background: var(--card); border: 1px solid var(--border); border-radius: 4px; padding: 1.2rem 1.6rem; display: flex; align-items: center; gap: 1.2rem; }
+    .award-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .award-item h4 { font-size: 0.92rem; font-weight: 500; color: var(--ink); }
+    .award-item p { font-size: 0.8rem; color: var(--ink3); }
+
+    /* COURSES / MENTORING */
+    .courses-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+    .course-card { background: var(--card); border: 1px solid var(--border); border-radius: 4px; padding: 1.8rem; transition: transform 0.2s, box-shadow 0.2s; }
+    .course-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .course-code { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--gold); letter-spacing: 0.12em; margin-bottom: 0.5rem; }
+    .course-card h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; margin-bottom: 0.7rem; color: var(--ink); }
+    .course-card p { font-size: 0.85rem; color: var(--ink3); line-height: 1.65; margin-bottom: 1rem; }
+    .course-meta { display: flex; gap: 0.7rem; flex-wrap: wrap; }
+    .course-pill { font-size: 0.68rem; padding: 0.2rem 0.7rem; border-radius: 20px; background: var(--bg2); color: var(--ink3); font-family: 'DM Mono', monospace; }
+
+    /* Mentoring */
+    .mentoring-list { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 3rem; }
+    .mentee-item { background: var(--card); border: 1px solid var(--border); border-radius: 4px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; }
+    .mentee-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent2); flex-shrink: 0; }
+    .mentee-item h4 { font-size: 0.9rem; font-weight: 500; color: var(--ink); }
+    .mentee-item p { font-size: 0.78rem; color: var(--ink3); }
+
+    /* CONTACT */
+    .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .contact-info h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1rem; color: var(--ink); }
+    .contact-info p { color: var(--ink2); font-weight: 300; margin-bottom: 2rem; line-height: 1.8; }
+    .contact-links { display: flex; flex-direction: column; gap: 0.8rem; }
+    .contact-link { display: flex; align-items: center; gap: 1rem; color: var(--ink2); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; padding: 0.6rem 0; border-bottom: 1px solid var(--border); }
+    .contact-link:hover { color: var(--accent); }
+    .contact-link-icon { width: 2rem; height: 2rem; background: var(--accent3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; flex-shrink: 0; }
+    .contact-form { display: flex; flex-direction: column; gap: 1.1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-group label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'DM Mono', monospace; color: var(--ink3); }
+    .form-group input, .form-group textarea { background: var(--card); border: 1px solid var(--border); border-radius: 2px; padding: 0.75rem 1rem; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; color: var(--ink); transition: border-color 0.2s; outline: none; resize: vertical; }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--accent); }
+    .form-group textarea { min-height: 130px; }
+
+    /* FOOTER */
+    footer { background: var(--ink); color: rgba(255,255,255,0.5); text-align: center; padding: 2rem; font-size: 0.78rem; font-family: 'DM Mono', monospace; letter-spacing: 0.06em; }
+    footer span { color: var(--accent2); }
+
+    /* ANIMATIONS */
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-up.visible { opacity: 1; transform: none; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 2rem; }
+      .nav-links { gap: 1.2rem; }
+      .hero { grid-template-columns: 1fr; padding: 7rem 2rem 4rem; text-align: center; }
+      .hero-bio { max-width: 100%; }
+      .hero-actions { justify-content: center; }
+      .hero-visual { display: none; }
+      .about-grid, .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      section { padding: 4rem 2rem; }
+      .stats-bar { flex-wrap: wrap; }
+      .stat-item { flex: 1 1 40%; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.15); }
+      .pub-item { grid-template-columns: auto 1fr; }
+      .pub-badge { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Dr. Suman Das</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#teaching">Teaching</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-text fade-up">
+    <div class="hero-eyebrow">Assistant Professor · Chemistry</div>
+    <h1>Dr. Suman Das</h1>
+    <div class="hero-title-role">Department of Chemistry, GITAM University, Visakhapatnam</div>
+    <p class="hero-bio">
+      Computational chemist working at the frontier of biomolecular condensates, intrinsically disordered proteins, and deep eutectic solvents — using molecular dynamics and theory to reveal the hidden physics of complex chemical systems.
+    </p>
+    <div class="hero-actions">
+      <a href="#research" class="btn btn-primary">View Research</a>
+      <a href="https://scholar.google.com/citations?user=kLgNSysAAAAJ&hl=en" class="btn btn-outline" target="_blank">Google Scholar</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="avatar-frame">
+      <div class="avatar-initials">SD</div>
+    </div>
+    <div class="hero-tags">
+      <span class="tag">h-index: 18</span>
+      <span class="tag">27 Publications</span>
+      <span class="tag">Ramanujan Fellow</span>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item fade-up">
+    <span class="stat-num">27</span>
+    <span class="stat-label">Publications</span>
+  </div>
+  <div class="stat-item fade-up">
+    <span class="stat-num">18</span>
+    <span class="stat-label">h-index</span>
+  </div>
+  <div class="stat-item fade-up">
+    <span class="stat-num">19</span>
+    <span class="stat-label">i10-index</span>
+  </div>
+  <div class="stat-item fade-up">
+    <span class="stat-num">7</span>
+    <span class="stat-label">Students Mentored</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header fade-up">
+    <div class="section-eyebrow">About Me</div>
+    <h2>Background &amp; Biography</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-text fade-up">
+      <p>
+        I am an Assistant Professor in the Department of Chemistry at GITAM University, Visakhapatnam, India. My research is rooted in computational and theoretical chemistry, with a focus on understanding complex molecular phenomena in soft matter, biological systems, and novel solvents.
+      </p>
+      <p>
+        Before joining GITAM, I was a Postdoctoral Fellow at the University of Toronto (2016–2023) under Prof. Hue Sun Chan, where I developed coarse-grained and analytical models for liquid-liquid phase separation in membraneless organelles — one of the most exciting frontiers in biophysics.
+      </p>
+      <p>
+        I completed my Ph.D. at S. N. Bose National Centre for Basic Sciences (Jadavpur University) in 2016, investigating heterogeneity and chemical dynamics in molten multi-component systems, including deep eutectic solvents and ionic liquids.
+      </p>
+      <p>
+        I am a recipient of the prestigious <strong>Ramanujan Fellowship (SERB, 2023)</strong> and am passionate about mentoring graduate and undergraduate students in computational research.
+      </p>
+    </div>
+    <div class="about-sidebar fade-up">
+      <div class="info-card">
+        <h4>Current Position</h4>
+        <p>Assistant Professor<br>Department of Chemistry, GITAM<br>Visakhapatnam, Andhra Pradesh – 530045, India</p>
+      </div>
+      <div class="info-card">
+        <h4>Education</h4>
+        <p>
+          Ph.D. Chemistry · S. N. Bose NCBS / Jadavpur University · 2016<br>
+          M.Sc. Chemistry (CPI 9.18) · IIT Guwahati · 2011<br>
+          B.Sc. Chemistry · Ramakrishna Mission Vidyamandira, Calcutta · 2009
+        </p>
+      </div>
+      <div class="info-card">
+        <h4>Programming &amp; Software</h4>
+        <p>Fortran · C · C++ · Python<br>GROMACS · LAMMPS · HOOMD-Blue · DL_POLY · Gaussian · VMD</p>
+      </div>
+      <div class="info-card">
+        <h4>Links</h4>
+        <a href="https://scholar.google.com/citations?user=kLgNSysAAAAJ&hl=en" target="_blank">Google Scholar ↗</a><br>
+        <a href="https://chemsd.weebly.com/" target="_blank">Personal Homepage ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-header fade-up">
+    <div class="section-eyebrow">Research</div>
+    <h2>Interests &amp; Publications</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <!-- Research Areas -->
+  <div class="research-grid">
+    <div class="research-card fade-up">
+      <div class="research-icon">🧬</div>
+      <h3>Liquid-Liquid Phase Separation in Membraneless Organelles</h3>
+      <p>Developing sequence-dependent coarse-grained models to understand how intrinsically disordered proteins (IDPs) undergo phase separation — relevant to gene regulation and disease.</p>
+    </div>
+    <div class="research-card fade-up">
+      <div class="research-icon">💧</div>
+      <h3>Deep Eutectic Solvents &amp; Ionic Liquids</h3>
+      <p>Using molecular dynamics simulations to probe microstructure, hydrogen-bond dynamics, dielectric relaxation, and transport properties in DESs and ILs.</p>
+    </div>
+    <div class="research-card fade-up">
+      <div class="research-icon">⚛️</div>
+      <h3>Intrinsically Disordered Proteins</h3>
+      <p>Investigating hydration dynamics, conformational behavior, and binding of IDPs using theory and simulation — exploring how sequence encodes function.</p>
+    </div>
+    <div class="research-card fade-up">
+      <div class="research-icon">🖥️</div>
+      <h3>Quantum Computing</h3>
+      <p>Exploring applications of quantum algorithms to chemical simulation problems, an emerging research interest at the boundary of chemistry and computer science.</p>
+    </div>
+    <div class="research-card fade-up">
+      <div class="research-icon">🔬</div>
+      <h3>Protein Stability in Non-Aqueous Solvents</h3>
+      <p>Understanding how non-aqueous environments alter protein structure, stability and function, with implications for green chemistry and industrial biotechnology.</p>
+    </div>
+  </div>
+
+  <!-- Selected Publications -->
+  <div class="section-header fade-up" style="margin-top:4rem;">
+    <div class="section-eyebrow">Selected Publications</div>
+    <p style="color:var(--ink3); font-size:0.85rem; margin-top:0.5rem;">27 total · h-index 18 · i10-index 19 &nbsp;·&nbsp; <a href="https://scholar.google.com/citations?user=kLgNSysAAAAJ&hl=en" target="_blank" style="color:var(--accent);">Full list on Google Scholar ↗</a></p>
+  </div>
+  <div class="pub-list">
+
+    <div class="pub-item fade-up">
+      <div class="pub-year">2025</div>
+      <div class="pub-info">
+        <h4>Electrostatics of Salt-Dependent Reentrant Phase Behaviors Highlights Diverse Roles of ATP in Biomolecular Condensates</h4>
+        <p>Yi-Hsuan Lin, Tae Hun Kim, <strong>Suman Das</strong>, Tanmoy Pal, Jonas Wessén et al. · <em>eLife</em>, IF 6.4</p>
+      </div>
+      <span class="pub-badge">Journal</span>
+    </div>
+
+    <div class="pub-item fade-up">
+      <div class="pub-year">2025</div>
+      <div class="pub-info">
+        <h4>Hydrogen-bond induced non-linear size dependence of lysozyme under the influence of aqueous glyceline</h4>
+        <p>Ivy Das Sarkar, Arnab Sil, Biswajit Guchhait*, <strong>Suman Das*</strong> · <em>J. Chem. Phys.</em> 162, 114506, IF 4.304</p>
+      </div>
+      <span class="pub-badge">Journal</span>
+    </div>
+
+    <div class="pub-item fade-up">
+      <div class="pub-year">2024</div>
+      <div class="pub-info">
+        <h4>Differential Effects of Sequence-Local versus Nonlocal Charge Patterns on Phase Separation and Conformational Dimensions of Polyampholytes</h4>
+        <p>Tanmoy Pal, Jonas Wessén, <strong>Suman Das</strong>, Hue Sun Chan* · <em>J. Phys. Chem. Lett.</em> 15, 8248–8256, IF 5.7</p>
+        <div class="pub-note">★ Equal first authorship</div>
+      </div>
+      <span class="pub-badge">Journal</span>
+    </div>
+
+    <div class="pub-item fade-up">
+      <div class="pub-year">2020</div>
+      <div class="pub-info">
+        <h4>Comparative Roles of Charge, π, and Hydrophobic Interactions in Sequence-Dependent Phase Separation of Intrinsically Disordered Proteins</h4>
+        <p><strong>Suman Das</strong>, Yi-Hsuan Lin, Robert M. Vernon, Julie D. Forman-Kay, Hue Sun Chan* · <em>PNAS</em>, IF 12.779</p>
+      </div>
+      <span class="pub-badge">Journal</span>
+    </div>
+
+    <div class="pub-item fade-up">
+      <div class="pub-year">2022</div>
+      <div class="pub-info">
+        <h4>Numerical Techniques for Applications of Analytical Theories to Sequence-Dependent Phase Separations of IDPs</h4>
+        <p>Yi-Hsuan Lin, Jonas Wessén, Tanmoy Pal, <strong>Suman Das</strong>, Hue Sun Chan* · <em>Springer-Nature Methods in Molecular Biology</em>, ISBN: 978-1-0716-2662-7</p>
+      </div>
+      <span class="pub-badge book">Book Chapter</span>
+    </div>
+
+    <div class="pub-item fade-up">
+      <div class="pub-year">2018</div>
+      <div class="pub-info">
+        <h4>Coarse-grained residue-based models of disordered protein condensates: Utility and limitations of simple charge pattern parameters</h4>
+        <p><strong>Suman Das</strong>, Alan Amin, Yi-Hsuan Lin, Hue Sun Chan* · <em>Phys. Chem. Chem. Phys.</em>, IF 3.676</p>
+      </div>
+      <span class="pub-badge">Journal</span>
+    </div>
+
+    <div class="pub-item fade-up">
+      <div class="pub-year">2016</div>
+      <div class="pub-info">
+        <h4>Collective dynamic dipole moment and orientation fluctuations, cooperative hydrogen bond relaxations in ionic acetamide deep eutectics</h4>
+        <p><strong>Suman Das</strong>, Ranjit Biswas*, Biswaroop Mukherjee* · <em>J. Chem. Phys.</em> 145, 084504, IF 4.304</p>
+      </div>
+      <span class="pub-badge">Journal</span>
+    </div>
+
+  </div>
+
+  <!-- Awards -->
+  <div class="section-header fade-up" style="margin-top:4rem;">
+    <div class="section-eyebrow">Fellowships &amp; Awards</div>
+  </div>
+  <div class="awards-list">
+    <div class="award-item fade-up">
+      <div class="award-icon">🏆</div>
+      <div>
+        <h4>Ramanujan Fellowship 2023 — SERB, India</h4>
+        <p>One of India's most prestigious research fellowships awarded by the Science and Engineering Research Board.</p>
+      </div>
+    </div>
+    <div class="award-item fade-up">
+      <div class="award-icon">🥇</div>
+      <div>
+        <h4>Best Poster Presentation — University of Toronto, 2019</h4>
+        <p>Coarse-grained simulations of disordered protein condensates.</p>
+      </div>
+    </div>
+    <div class="award-item fade-up">
+      <div class="award-icon">🥇</div>
+      <div>
+        <h4>Best Oral Presentation — Bose Fest 2014 &amp; 2015</h4>
+        <p>S. N. Bose National Centre for Basic Sciences, Kolkata.</p>
+      </div>
+    </div>
+    <div class="award-item fade-up">
+      <div class="award-icon">🎓</div>
+      <div>
+        <h4>CSIR Junior &amp; Senior Research Fellowship — All India Rank 63</h4>
+        <p>Council for Scientific and Industrial Research, New Delhi, December 2010.</p>
+      </div>
+    </div>
+    <div class="award-item fade-up">
+      <div class="award-icon">🎓</div>
+      <div>
+        <h4>GATE Fellowship — All India Rank 704 &nbsp;|&nbsp; IIT-JAM — All India Rank 184</h4>
+        <p>February 2011 and May 2009 respectively.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEACHING -->
+<section id="teaching">
+  <div class="section-header fade-up">
+    <div class="section-eyebrow">Teaching &amp; Mentoring</div>
+    <h2>Courses &amp; Students</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="courses-grid">
+    <div class="course-card fade-up">
+      <div class="course-code">CHEM · UG</div>
+      <h3>Physical Chemistry</h3>
+      <p>Core undergraduate course covering thermodynamics, kinetics, quantum chemistry, and spectroscopy with an emphasis on molecular-level understanding.</p>
+      <div class="course-meta"><span class="course-pill">Undergraduate</span><span class="course-pill">GITAM</span></div>
+    </div>
+    <div class="course-card fade-up">
+      <div class="course-code">CHEM · UG</div>
+      <h3>Computational Chemistry</h3>
+      <p>Introduction to molecular simulation methods: molecular dynamics, Monte Carlo, force fields, and analysis techniques using Python and open-source tools.</p>
+      <div class="course-meta"><span class="course-pill">Undergraduate</span><span class="course-pill">GITAM</span></div>
+    </div>
+    <div class="course-card fade-up">
+      <div class="course-code">CHEM · PG</div>
+      <h3>Advanced Topics in Biophysical Chemistry</h3>
+      <p>Graduate seminar covering phase separation, intrinsically disordered proteins, membraneless organelles, and current literature in the field.</p>
+      <div class="course-meta"><span class="course-pill">Graduate</span><span class="course-pill">GITAM</span></div>
+    </div>
+    <div class="course-card fade-up">
+      <div class="course-code">CHEM · PG</div>
+      <h3>Statistical Mechanics &amp; Simulations</h3>
+      <p>Rigorous treatment of statistical thermodynamics and its application to molecular simulations of liquids, solutions, and biological systems.</p>
+      <div class="course-meta"><span class="course-pill">Graduate</span><span class="course-pill">GITAM</span></div>
+    </div>
+  </div>
+
+  <!-- Mentoring -->
+  <div class="section-header fade-up" style="margin-top:4rem;">
+    <div class="section-eyebrow">Students Mentored</div>
+  </div>
+  <div class="mentoring-list">
+    <div class="mentee-item fade-up">
+      <div class="mentee-dot"></div>
+      <div>
+        <h4>Arnab Sil — PhD Student</h4>
+        <p>Shiv Nadar University, India · 2021–present</p>
+      </div>
+    </div>
+    <div class="mentee-item fade-up">
+      <div class="mentee-dot"></div>
+      <div>
+        <h4>Sangeeta — PhD Student</h4>
+        <p>Shiv Nadar University, India · 2021–present</p>
+      </div>
+    </div>
+    <div class="mentee-item fade-up">
+      <div class="mentee-dot"></div>
+      <div>
+        <h4>Abhishek — Master's Student</h4>
+        <p>IIT Kanpur, India · 2023–2024</p>
+      </div>
+    </div>
+    <div class="mentee-item fade-up">
+      <div class="mentee-dot"></div>
+      <div>
+        <h4>Padma Sree — Master's Student</h4>
+        <p>GITAM, India · 2023–2024</p>
+      </div>
+    </div>
+    <div class="mentee-item fade-up">
+      <div class="mentee-dot"></div>
+      <div>
+        <h4>Satvika — Master's Student</h4>
+        <p>GITAM, India · 2023–2024</p>
+      </div>
+    </div>
+    <div class="mentee-item fade-up">
+      <div class="mentee-dot"></div>
+      <div>
+        <h4>Alan Amin — Undergraduate Student</h4>
+        <p>University of Toronto, Canada · 2017–2018</p>
+      </div>
+    </div>
+    <div class="mentee-item fade-up">
+      <div class="mentee-dot"></div>
+      <div>
+        <h4>Andrea Guljas — Rotation Master's Student</h4>
+        <p>University of Toronto, Canada · 2018</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header fade-up">
+    <div class="section-eyebrow">Get in Touch</div>
+    <h2>Contact</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="contact-layout">
+    <div class="contact-info fade-up">
+      <h3>Open to collaboration &amp; inquiries</h3>
+      <p>
+        Whether you are a prospective student interested in computational chemistry, a researcher looking to collaborate, or have any other inquiry — feel free to reach out. I typically respond within 2–3 business days.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:sdas6@gitam.edu" class="contact-link">
+          <span class="contact-link-icon">✉️</span>
+          sdas6@gitam.edu
+        </a>
+        <a href="mailto:sumandas212@gmail.com" class="contact-link">
+          <span class="contact-link-icon">✉️</span>
+          sumandas212@gmail.com
+        </a>
+        <a href="tel:+917003544734" class="contact-link">
+          <span class="contact-link-icon">📞</span>
+          +91 7003544734
+        </a>
+        <a href="https://scholar.google.com/citations?user=kLgNSysAAAAJ&hl=en" target="_blank" class="contact-link">
+          <span class="contact-link-icon">🎓</span>
+          Google Scholar Profile
+        </a>
+        <a href="https://chemsd.weebly.com/" target="_blank" class="contact-link">
+          <span class="contact-link-icon">🌐</span>
+          chemsd.weebly.com
+        </a>
+        <div class="contact-link" style="cursor:default;">
+          <span class="contact-link-icon">📍</span>
+          Department of Chemistry, GITAM, Visakhapatnam, Andhra Pradesh – 530045, India
+        </div>
+      </div>
+    </div>
+    <div class="fade-up">
+      <div class="contact-form">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="Full Name" />
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="you@institution.edu" />
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <input type="text" placeholder="Research inquiry / Collaboration / Other" />
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Write your message here..."></textarea>
+        </div>
+        <button class="btn btn-primary" onclick="alert('To make this form functional, connect it to a service like Formspree (formspree.io) — free and easy!')">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <span>Dr. Suman Das</span> · Department of Chemistry, GITAM University, Visakhapatnam · Ramanujan Fellow, SERB 2023</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(sec => { if (window.scrollY >= sec.offsetTop - 120) current = sec.getAttribute('id'); });
+    navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : ''; });
+  });
+</script>
+</body>
+</html>
