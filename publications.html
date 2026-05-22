@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Publications — Dr. Suman Das</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #f5f2eb;
+      --bg2: #edeade;
+      --ink: #1a1a18;
+      --ink2: #4a4a42;
+      --ink3: #8a8a7a;
+      --accent: #2d6a4f;
+      --accent2: #52b788;
+      --accent3: #b7e4c7;
+      --gold: #c9a84c;
+      --card: #fffef9;
+      --border: #d8d4c8;
+      --shadow: 0 2px 24px rgba(26,26,24,0.08);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; overflow-x: hidden; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 4rem; background: rgba(245,242,235,0.88); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: 'DM Mono', monospace; font-size: 0.78rem; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; }
+    .nav-links { display: flex; gap: 2.4rem; list-style: none; }
+    .nav-links a { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink2); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+
+    /* PAGE HEADER */
+    .page-header {
+      padding: 9rem 4rem 4rem;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.7rem; display: flex; align-items: center; gap: 0.7rem; }
+    .page-eyebrow::before { content: ''; display: inline-block; width: 2rem; height: 1px; background: var(--accent); }
+    h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; }
+    .page-sub { color: var(--ink3); font-size: 0.92rem; margin-top: 0.5rem; }
+    .page-sub a { color: var(--accent); text-decoration: none; }
+    .page-sub a:hover { text-decoration: underline; }
+    .section-line { width: 3rem; height: 2px; background: var(--gold); margin-top: 1rem; }
+
+    /* STATS */
+    .pub-stats {
+      display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .pub-stat {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--accent);
+      padding: 1rem 1.8rem;
+      border-radius: 0 0 4px 4px;
+      text-align: center;
+    }
+    .pub-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      display: block;
+      line-height: 1;
+    }
+    .pub-stat-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink3);
+    }
+
+    /* MAIN CONTENT */
+    .main { padding: 4rem; max-width: 960px; }
+
+    /* YEAR GROUP */
+    .year-group { margin-bottom: 3.5rem; }
+    .year-label {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--border);
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .year-count {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      background: var(--accent3);
+      color: var(--accent);
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+      font-weight: 400;
+    }
+
+    /* PUB ITEM */
+    .pub-list { display: flex; flex-direction: column; gap: 1rem; }
+    .pub-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.4rem 1.8rem;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 1.2rem;
+      align-items: start;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .pub-item:hover { border-color: var(--accent2); transform: translateX(3px); }
+    .pub-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--ink3);
+      min-width: 2rem;
+      padding-top: 0.2rem;
+    }
+    .pub-info h4 {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.35rem;
+      line-height: 1.45;
+    }
+    .pub-authors {
+      font-size: 0.82rem;
+      color: var(--ink2);
+      margin-bottom: 0.25rem;
+      line-height: 1.5;
+    }
+    .pub-authors strong { color: var(--accent); }
+    .pub-journal {
+      font-size: 0.8rem;
+      color: var(--ink3);
+      font-style: italic;
+    }
+    .pub-journal .if { font-style: normal; font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--gold); margin-left: 0.5rem; }
+    .pub-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      background: var(--accent3);
+      color: var(--accent);
+      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .pub-badge.book { background: #e0e7ff; color: #3730a3; }
+    .pub-badge.poster { background: #fef3c7; color: #92400e; }
+    .pub-note {
+      font-size: 0.72rem;
+      font-family: 'DM Mono', monospace;
+      color: var(--gold);
+      margin-top: 0.3rem;
+    }
+
+    /* FADE IN */
+    .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: none; }
+
+    /* FOOTER */
+    footer { background: var(--ink); color: rgba(255,255,255,0.5); text-align: center; padding: 2rem; font-size: 0.78rem; font-family: 'DM Mono', monospace; letter-spacing: 0.06em; margin-top: 4rem; }
+    footer span { color: var(--accent2); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 2rem; }
+      .nav-links { gap: 1.2rem; }
+      .page-header, .main { padding: 7rem 2rem 2rem; }
+      .pub-item { grid-template-columns: 1fr; }
+      .pub-num { display: none; }
+      .pub-badge { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Dr. Suman Das</a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#research">Research</a></li>
+    <li><a href="publications.html" class="active">Publications</a></li>
+    <li><a href="index.html#teaching">Teaching</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-eyebrow">Dr. Suman Das</div>
+  <h1>Publications</h1>
+  <div class="section-line"></div>
+  <p class="page-sub" style="margin-top:1rem;">
+    Full list also available on <a href="https://scholar.google.com/citations?user=kLgNSysAAAAJ&hl=en" target="_blank">Google Scholar ↗</a>
+  </p>
+  <div class="pub-stats">
+    <div class="pub-stat">
+      <span class="pub-stat-num">27</span>
+      <span class="pub-stat-label">Publications</span>
+    </div>
+    <div class="pub-stat">
+      <span class="pub-stat-num">20</span>
+      <span class="pub-stat-label">h-index</span>
+    </div>
+    <div class="pub-stat">
+      <span class="pub-stat-num">23</span>
+      <span class="pub-stat-label">i10-index</span>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- 2025 -->
+  <div class="year-group fade-up">
+    <div class="year-label">2025 <span class="year-count">3 papers</span></div>
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-num">1</div>
+        <div class="pub-info">
+          <h4>Vacuum ultraviolet spectra of gas phase organophosphorus solvent for nuclear fuel applications: Di-(2-ethyl-hexyl) phosphoric acid</h4>
+          <div class="pub-authors">Tamaghna Maitra, Param Jeet Singh, Atanu Bhattacharya, <strong>Suman Das</strong>, K.K. Gorai, D.V. Udupa</div>
+          <div class="pub-journal">Chem. Phys., 599, 2025 <span class="if">IF 2.4</span></div>
+        </div>
+        <span class="pub-badge">Journal</span>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-num">2</div>
+        <div class="pub-info">
+          <h4>Hydrogen-bond induced non-linear size dependence of lysozyme under the influence of aqueous glyceline</h4>
+          <div class="pub-authors">Ivy Das Sarkar, Arnab Sil, Biswajit Guchhait*, <strong>Suman Das*</strong></div>
+          <div class="pub-journal">J. Chem. Phys. 162, 114506, 2025 <span class="if">IF 4.304</span></div>
+        </div>
+        <span class="pub-badge">Journal</span>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-num">3</div>
+        <div class="pub-info">
+          <h4>Electrostatics of Salt-Dependent Reentrant Phase Behaviors Highlights Diverse Roles of ATP in Biomolecular Condensates</h4>
+          <div class="pub-authors">Yi-Hsuan Lin, Tae Hun Kim, <strong>Suman Das</strong>, Tanmoy Pal, Jonas Wessén, Atul Kaushik Rangadurai, Lewis E Kay, Julie D Forman-Kay, Hue Sun Chan*</div>
+          <div class="pub-journal">eLife 13, RP100284, 2025 <span class="if">IF 6.4</span></div>
+        </div>
+        <span class="pub-badge">Journal</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2024 -->
+  <div class="year-group fade-up">
+    <div class="year-label">2024 <span class="year-count">3 papers</span></div>
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-num">4</div>
+        <div class="pub-info">
+          <h4>Molecular dynamics insights into the dynamical behavior of structurally modified water in aqueous deep eutectic solvents (ADES)</h4>
+          <div class="pub-authors">Arnab Sil, Sangeeta, Vishnu Poonia, <strong>Suman Das*</strong>, Biswajit Guchhait*</div>
+          <div class="pub-journal">J. Chem. Phys. 161, 164501, 2024 <span class="if">IF 4.304</span></div>
+        </div>
+        <span class="pub-badge">Journal</span>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-num">5</div>
+        <div class="pub-info">
+          <h4>Differential Effects of Sequence-Local versus Nonlocal Charge Patterns on Phase Separation and Conformational Dimensions of Polyampholytes as Model Intrinsically Disordered Proteins</h4>
+          <div class="pub-authors">Tanmoy Pal, Jonas Wessén, <strong>Suman Das</strong>, Hue Sun Chan*</div>
+          <div class="pub-journal">J. Phys. Chem. Lett. 15, 8248–8256, 2024 <span class="if">IF 5.7</span></div>
+          <div class="pub-note">★ Equal first authorship</div>
+        </div>
+        <span class="pub-badge">Journal</span>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-num">6</div>
+        <div class="pub-info">
+          <h4>UV-VUV Absorption Spectra of Azido-Based Energetic Plasticizer Bis(1,3-diazido prop-2-yl)malonate in Gas Phase</h4>
+          <div class="pub-authors">Atanu Bhattacharya*, Param Jeet Singh*, <strong>Suman Das</strong></div>
+          <div class="pub-journal">J. Chem. Phys. 160, 014303, 2024 <span class="if">IF 4.304</span></div>
+        </div>
+        <span class="pub-badge">Journal</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2023 -->
+  <div class="year-group fade-up">
+    <div class="year-label">2023 <span class="year-count">2 papers</span></div>
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-num">7</div>
+        <div class="pub-info">
+          <h4>Ion clustering, aggregation and diffusion in amide based deep eutectic solvents: A microstructural investigation using various NMR spectroscopic techniques and molecular dynamics simulation</h4>
+          <div class="pub-authors">Arnab Sil, Sangeeta, Renu Bhati, <strong>Suman Das*</strong>, Biswajit Guchhait*</div>
+          <div class="pub-journal">J. Mol. Liq. 388, 122761, 2023 <span class="if">IF 6.633</span></div>
+        </div>
+        <span class="pub-badge">Journal</span>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-num">8</div>
+        <div class="pub-info">
+          <h4>Validity of the Onsager-Glarum Relation in a Molecular Coulomb Fluid: Investigation via Temperature-dependent Molecular Dynamics Simulations of a Representative Ionic Liquid, [BMIM][PF6]</h4>
+          <div class="pub-authors">Tamisra Pal, <strong>Suman Das</strong>, Dhrubajyoti Maji, Ranjit Biswas</div>
+          <div class="pub-journal">New J. Chem. 47, 14906–14920, 2023 <span class="if">IF 3.925</span></div>
+          <div class="pub-note">★ Equal first authorship</div>
+        </div>
+        <span class="pub-badge">Journal</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2022 -->
+  <div class="year-group fade-up">
+    <div class="year-label">2022 <span class="year-count">2 papers</span></div>
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-num">9</div>
+        <div class="pub-info">
+          <h4>Analytical Formulation and Field-Theoretic Simulation of Sequence-Specific Phase Separation of Protein-Like Heteropolymers with Short- and Long-Spatial-Range Interactions</h4>
+          <div class="pub-authors">Jonas Wessén, <strong>Suman Das</strong>, Tanmoy Pal, Hue Sun Chan*</div>
+          <div class="pub-journal">J. Phys. Chem. B 126, 9222–9245, 2022 <span class="if">IF 3.466</span></div>
+          <div class="pub-note">★ Equal first authorship</div>
+        </div>
+        <span class="pub-badge">Journal</span>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-num">10</div>
+        <div class="pub-info">
+          <h4>Numerical Techniques for Applications of Analytical Theories to Sequence-Dependent Phase Separations of Intrinsically Disordered Proteins</h4>
+          <div class="pub-authors">Yi-Hsuan Lin, Jonas Wessén, Tanmoy Pal, <strong>Suman Das</strong>, Hue Sun Chan*</div>
+          <div class="pub-journal">Book Chapter · Phase-Separated Biomolecular Condensates, Springer-Nature Methods in Molecular Biology, ISBN: 978-1-0716-2662-7</div>
+          <div class="pub-note">★ Equal first authorship</div>
+        </div>
+        <span class="pub-badge book">Book Chapter</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2021 -->
+  <div class="year-group fade-up">
+    <div class="year-label">2021 <span class="year-count">3 papers</span></div>
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-num">11</div>
+        <div class="pub-info">
+          <h4>Temperature-Dependent Dielectric Relaxation in Ionic Acetamide Deep Eutectics: Partial Viscosity Decoupling and Explanations from the Simulated Single-Particle Reorientation Dynamics and Hydrogen-Bond Fluctuations</h4>
+          <div class="pub-authors">Kallol Mukherjee, <strong>Suman Das</strong>, Juriti Rajbanshi, Ejaj Tarif, Anjan Barman, Ranjit Biswas*</div>
+          <div class="pub-journal">J. Phys. Chem. B 125, 12552–12567, 2021 <span class="if">IF 3.466</span></div>
+        </div>
+        <span class="pub-badge">Journal</span>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-num">12</div>
+        <div class="pub-info">
+          <h4>A Simple Explicit-Solvent Model of Polyampholyte Phase Behaviors and its Ramifications for Dielectric Effects in Biomolecular Condensates</h4>
+          <div class="pub-authors">Jonas Wessén, Tanmoy Pal, <strong>Suman Das</strong>, Yi-Hsuan Lin, Hue Sun Chan*</div>
+          <div class="pub-journal">J. Phys. Chem. B 125, 4337–4358, 2021 <span class="if">IF 3.466</span></div>
+          <div class="pub-note">★ Equal authorship · Selected for cover image</div>
+        </div>
+        <span class="pub-badge">Journal</span>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-num">13</div>
+        <div class="pub-info">
+          <h4>Subcompartmentalization of polyampholyte species in organelle-like condensates is promoted by charge pattern mismatch and strong excluded-volume interaction</h4>
+          <div class="pub-authors">Tanmoy Pal, <strong>Suman Das</strong>, Dhrubajyoti Maji, Hue Sun Chan*</div>
+          <div class="pub-journal">Phys. Rev. E 103, 042406, 2021 <span class="if">IF 2.707</span></div>
+          <div class="pub-note">★ Equal authorship</div>
+        </div>
+        <span class="pub-badge">Journal</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2020 -->
+  <div class="year-group fade-up">
+    <div class="year-label">2020 <span class="year-count">3 papers</span></div>
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-num">14</div>
+        <div class="pub-info">
+          <h4>Heterogeneous dynamics, correlated time and length scales in ionic deep eutectics: Anion and temperature dependence</h4>
+          <div class="pub-authors">Swarup Banerjee, Pradip Kr. Ghorai, <strong>Suman Das</strong>, Juriti Rajbanshi, Ranjit Biswas*</div>
+          <div class="pub-journal">J. Chem. Phys. 153, 234502, 2020 <span class="if">IF 4.304</span></div>
+        </div>
+        <span class="pub-badge">Journal</span>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-num">15</div>
+        <div class="pub-info">
+          <h4>Comparative Roles of Charge, π, and Hydrophobic Interactions in Sequence-Dependent Phase Separation of Intrinsically Disordered Proteins</h4>
+          <div class="pub-authors"><strong>Suman Das</strong>, Yi-Hsuan Lin, Robert M. Vernon, Julie D. Forman-Kay, Hue Sun Chan*</div>
+          <div class="pub-journal">Proc. Natl. Acad. Sci. U.S.A. 117, 28795–28805, 2020 <span class="if">IF 12.779</span></div>
+        </div>
+        <span class="pub-badge">Journal</span>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-num">16</div>
+        <div class="pub-info">
+          <h4>Analytical Theory for Sequence-Specific Binary Fuzzy Complexes of Charged Intrinsically Disordered Proteins</h4>
+          <div class="pub-authors">Alan Amin, Yi-Hsuan Lin, <strong>Suman Das</strong>, Hue Sun Chan*</div>
+          <div class="pub-journal">J. Phys. Chem. B 124, 6709–6720, 2020 <span class="if">IF 3.466</span></div>
+          <div class="pub-note">★ Equal authorship · Selected for cover image</div>
+        </div>
+        <span class="pub-badge">Journal</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2018 -->
+  <div class="year-group fade-up">
+    <div class="year-label">2018 <span class="year-count">4 papers</span></div>
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-num">17</div>
+        <div class="pub-info">
+          <h4>Coarse-grained residue-based models of disordered protein condensates: Utility and limitations of simple charge pattern parameters</h4>
+          <div class="pub-authors"><strong>Suman Das</strong>, Alan Amin, Yi-Hsuan Lin, Hue Sun Chan*</div>
+          <div class="pub-journal">Phys. Chem. Chem. Phys. 20, 28558–28574, 2018 <span class="if">IF 3.676</span></div>
+        </div>
+        <span class="pub-badge">Journal</span>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-num">18</div>
+        <div class="pub-info">
+          <h4>Dielectric relaxation in acetamide+urea deep eutectics and neat molten urea: Origin of time scales via temperature dependent measurements and computer simulations</h4>
+          <div class="pub-authors">Kallol Mukherjee, <strong>Suman Das</strong>, Ejaj Tarif, Anjan Barman, Ranjit Biswas*</div>
+          <div class="pub-journal">J. Chem. Phys. 149, 124501, 2018 <span class="if">IF 4.304</span></div>
+        </div>
+        <span class="pub-badge">Journal</span>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-num">19</div>
+        <div class="pub-info">
+          <h4>Orientational dynamics in a room temperature ionic liquid: Are angular jumps predominant?</h4>
+          <div class="pub-authors"><strong>Suman Das</strong>, Biswaroop Mukherjee*, Ranjit Biswas*</div>
+          <div class="pub-journal">J. Chem. Phys. 148, 193839, 2018 <span class="if">IF 4.304</span></div>
+        </div>
+        <span class="pub-badge">Journal</span>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-num">20</div>
+        <div class="pub-info">
+          <h4>A lattice model of charge-pattern-dependent polyampholyte phase separation</h4>
+          <div class="pub-authors"><strong>Suman Das</strong>, Adam Eisen, Yi-Hsuan Lin, Hue Sun Chan*</div>
+          <div class="pub-journal">J. Phys. Chem. B 122, 5418–5431, 2018 <span class="if">IF 3.466</span></div>
+        </div>
+        <span class="pub-badge">Journal</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2017 -->
+  <div class="year-group fade-up">
+    <div class="year-label">2017 <span class="year-count">1 paper</span></div>
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-num">21</div>
+        <div class="pub-info">
+          <h4>Microstructures and their lifetimes in acetamide/electrolyte deep eutectics: Anion dependence</h4>
+          <div class="pub-authors"><strong>Suman Das</strong>, Biswaroop Mukherjee*, Ranjit Biswas*</div>
+          <div class="pub-journal">J. Chem. Sci. 129, 939–951, 2017 <span class="if">IF 2.15</span></div>
+        </div>
+        <span class="pub-badge">Journal</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2016 -->
+  <div class="year-group fade-up">
+    <div class="year-label">2016 <span class="year-count">1 paper</span></div>
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-num">22</div>
+        <div class="pub-info">
+          <h4>Collective dynamic dipole moment and orientation fluctuations, cooperative hydrogen bond relaxations and their connections to dielectric relaxation in ionic acetamide deep eutectics: Microscopic insight from simulations</h4>
+          <div class="pub-authors"><strong>Suman Das</strong>, Ranjit Biswas*, Biswaroop Mukherjee*</div>
+          <div class="pub-journal">J. Chem. Phys. 145, 084504, 2016 <span class="if">IF 4.304</span></div>
+        </div>
+        <span class="pub-badge">Journal</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2015 -->
+  <div class="year-group fade-up">
+    <div class="year-label">2015 <span class="year-count">3 papers</span></div>
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-num">23</div>
+        <div class="pub-info">
+          <h4>Orientational jumps in (acetamide + electrolyte) deep eutectics: Anion dependence</h4>
+          <div class="pub-authors"><strong>Suman Das</strong>, Ranjit Biswas*, Biswaroop Mukherjee*</div>
+          <div class="pub-journal">J. Phys. Chem. B 119, 11157–11168, 2015 <span class="if">IF 3.466</span></div>
+        </div>
+        <span class="pub-badge">Journal</span>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-num">24</div>
+        <div class="pub-info">
+          <h4>Density relaxation and particle motion characteristics in a non-ionic deep eutectic solvent (acetamide + urea): Time-resolved fluorescence measurements and all-atom molecular dynamics</h4>
+          <div class="pub-authors">Anuradha Das, <strong>Suman Das</strong>, Ranjit Biswas*</div>
+          <div class="pub-journal">J. Chem. Phys. 142, 034505, 2015 <span class="if">IF 4.304</span></div>
+        </div>
+        <span class="pub-badge">Journal</span>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-num">25</div>
+        <div class="pub-info">
+          <h4>Reorientational jump dynamics and its connections to hydrogen bond relaxation in molten acetamide: An all-atom molecular dynamics simulation study</h4>
+          <div class="pub-authors"><strong>Suman Das</strong>, Ranjit Biswas*, Biswaroop Mukherjee*</div>
+          <div class="pub-journal">J. Phys. Chem. B 119, 274–283, 2015 <span class="if">IF 3.466</span></div>
+        </div>
+        <span class="pub-badge">Journal</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2014 -->
+  <div class="year-group fade-up">
+    <div class="year-label">2014 <span class="year-count">1 paper</span></div>
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-num">26</div>
+        <div class="pub-info">
+          <h4>Interaction and dynamics of (alkylamide + electrolyte) deep eutectics: Dependence on alkyl chain-length, temperature, and anion identity</h4>
+          <div class="pub-authors">Biswajit Guchhait, <strong>Suman Das</strong>, Snehasis Daschakraborty, Ranjit Biswas*</div>
+          <div class="pub-journal">J. Chem. Phys. 140, 104514, 2014 <span class="if">IF 4.304</span></div>
+        </div>
+        <span class="pub-badge">Journal</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2013 -->
+  <div class="year-group fade-up">
+    <div class="year-label">2013 <span class="year-count">1 paper</span></div>
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-num">27</div>
+        <div class="pub-info">
+          <h4>Fast fluctuations in deep eutectic melts: Multi-probe fluorescence measurements and all-atom molecular dynamics simulation study</h4>
+          <div class="pub-authors">Anuradha Das, <strong>Suman Das</strong>, Ranjit Biswas*</div>
+          <div class="pub-journal">Chem. Phys. Lett. 581, 47–51, 2013 <span class="if">IF 2.719</span></div>
+        </div>
+        <span class="pub-badge">Journal</span>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- end main -->
+
+<footer>
+  <p>© 2026 <span>Dr. Suman Das</span> · Department of Chemistry, GITAM University, Visakhapatnam</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
