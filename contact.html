@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — Dr. Suman Das</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--bg:#f5f2eb;--bg2:#edeade;--ink:#1a1a18;--ink2:#4a4a42;--ink3:#8a8a7a;--accent:#2d6a4f;--accent2:#52b788;--accent3:#b7e4c7;--gold:#c9a84c;--card:#fffef9;--border:#d8d4c8;--shadow:0 2px 24px rgba(26,26,24,0.08);}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;overflow-x:hidden;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 4rem;background:rgba(245,242,235,0.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);}
+    .nav-logo{font-family:'DM Mono',monospace;font-size:0.78rem;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;}
+    .nav-links{display:flex;gap:2.4rem;list-style:none;}
+    .nav-links a{font-size:0.82rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink2);text-decoration:none;transition:color 0.2s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--accent);}
+    .page-header{padding:9rem 4rem 4rem;border-bottom:1px solid var(--border);}
+    .page-eyebrow{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.7rem;display:flex;align-items:center;gap:0.7rem;}
+    .page-eyebrow::before{content:'';display:inline-block;width:2rem;height:1px;background:var(--accent);}
+    h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--ink);}
+    .section-line{width:3rem;height:2px;background:var(--gold);margin-top:1rem;}
+    .main{padding:4rem;}
+    .contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+    .contact-info h3{font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:1rem;color:var(--ink);}
+    .contact-info p{color:var(--ink2);font-weight:300;margin-bottom:2rem;line-height:1.8;}
+    .contact-links{display:flex;flex-direction:column;gap:0.8rem;}
+    .contact-link{display:flex;align-items:center;gap:1rem;color:var(--ink2);text-decoration:none;font-size:0.9rem;transition:color 0.2s;padding:0.6rem 0;border-bottom:1px solid var(--border);}
+    .contact-link:hover{color:var(--accent);}
+    .contact-link-icon{width:2rem;height:2rem;background:var(--accent3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0;}
+    .contact-form{display:flex;flex-direction:column;gap:1.1rem;}
+    .form-group{display:flex;flex-direction:column;gap:0.4rem;}
+    .form-group label{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;font-family:'DM Mono',monospace;color:var(--ink3);}
+    .form-group input,.form-group textarea{background:var(--card);border:1px solid var(--border);border-radius:2px;padding:0.75rem 1rem;font-family:'DM Sans',sans-serif;font-size:0.9rem;color:var(--ink);transition:border-color 0.2s;outline:none;resize:vertical;}
+    .form-group input:focus,.form-group textarea:focus{border-color:var(--accent);}
+    .form-group textarea{min-height:130px;}
+    .btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.8rem;border-radius:2px;font-size:0.82rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;transition:all 0.2s;cursor:pointer;border:none;}
+    .btn-primary{background:var(--accent);color:#fff;}
+    .btn-primary:hover{background:#1e4d38;transform:translateY(-1px);}
+    .formspree-note{font-size:0.75rem;color:var(--ink3);font-family:'DM Mono',monospace;margin-top:0.5rem;}
+    .formspree-note a{color:var(--accent);}
+    .fade-up{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease;}
+    .fade-up.visible{opacity:1;transform:none;}
+    footer{background:var(--ink);color:rgba(255,255,255,0.5);text-align:center;padding:2rem;font-size:0.78rem;font-family:'DM Mono',monospace;letter-spacing:0.06em;margin-top:4rem;}
+    footer span{color:var(--accent2);}
+    @media(max-width:900px){nav{padding:1rem 2rem;}.nav-links{gap:1rem;}.page-header,.main{padding:7rem 2rem 2rem;}.contact-layout{grid-template-columns:1fr;gap:2.5rem;}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Dr. Suman Das</a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="teaching.html">Teaching</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="page-eyebrow">Dr. Suman Das</div>
+  <h1>Contact</h1>
+  <div class="section-line"></div>
+</div>
+
+<div class="main">
+  <div class="contact-layout">
+    <div class="contact-info fade-up">
+      <h3>Open to collaboration &amp; inquiries</h3>
+      <p>Whether you are a prospective student interested in computational chemistry, a researcher looking to collaborate, or have any other inquiry — feel free to reach out. I typically respond within 2–3 business days.</p>
+      <div class="contact-links">
+        <a href="mailto:sdas6@gitam.edu" class="contact-link">
+          <span class="contact-link-icon">✉️</span>sdas6@gitam.edu
+        </a>
+        <a href="mailto:sumandas212@gmail.com" class="contact-link">
+          <span class="contact-link-icon">✉️</span>sumandas212@gmail.com
+        </a>
+        <a href="tel:+917003544734" class="contact-link">
+          <span class="contact-link-icon">📞</span>+91 7003544734
+        </a>
+        <a href="https://scholar.google.com/citations?user=kLgNSysAAAAJ&hl=en" target="_blank" class="contact-link">
+          <span class="contact-link-icon">🎓</span>Google Scholar Profile
+        </a>
+        <div class="contact-link" style="cursor:default;">
+          <span class="contact-link-icon">📍</span>Department of Chemistry, GITAM, Visakhapatnam, Andhra Pradesh – 530045, India
+        </div>
+      </div>
+    </div>
+    <div class="fade-up">
+      <div class="contact-form">
+        <div class="form-group"><label>Your Name</label><input type="text" placeholder="Full Name" /></div>
+        <div class="form-group"><label>Email Address</label><input type="email" placeholder="you@institution.edu" /></div>
+        <div class="form-group"><label>Subject</label><input type="text" placeholder="Research inquiry / Collaboration / Other" /></div>
+        <div class="form-group"><label>Message</label><textarea placeholder="Write your message here..."></textarea></div>
+        <button class="btn btn-primary" onclick="alert('To activate this form, sign up free at formspree.io, create a form, and replace the button with their form action URL.')">Send Message →</button>
+        <p class="formspree-note">To make this form functional, connect it to <a href="https://formspree.io" target="_blank">formspree.io</a> — free and takes 2 minutes.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer><p>© 2026 <span>Dr. Suman Das</span> · Department of Chemistry, GITAM University, Visakhapatnam · Ramanujan Fellow, SERB 2023</p></footer>
+<script>
+  const observer = new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*100);observer.unobserve(e.target);}});},{threshold:0.08});
+  document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+</script>
+</body></html>

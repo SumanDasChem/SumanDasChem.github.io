@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dr. Suman Das — Assistant Professor, Chemistry</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root { --bg:#f5f2eb;--bg2:#edeade;--ink:#1a1a18;--ink2:#4a4a42;--ink3:#8a8a7a;--accent:#2d6a4f;--accent2:#52b788;--accent3:#b7e4c7;--gold:#c9a84c;--card:#fffef9;--border:#d8d4c8;--shadow:0 2px 24px rgba(26,26,24,0.08); }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;overflow-x:hidden;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 4rem;background:rgba(245,242,235,0.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);}
+    .nav-logo{font-family:'DM Mono',monospace;font-size:0.78rem;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;}
+    .nav-links{display:flex;gap:2.4rem;list-style:none;}
+    .nav-links a{font-size:0.82rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink2);text-decoration:none;transition:color 0.2s;}
+    .nav-links a:hover{color:var(--accent);}
+    .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:7rem 4rem 4rem;gap:4rem;position:relative;}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 80% 50%,rgba(82,183,136,0.12) 0%,transparent 70%),radial-gradient(ellipse 40% 50% at 10% 80%,rgba(201,168,76,0.08) 0%,transparent 60%);pointer-events:none;}
+    .hero-text{position:relative;}
+    .hero-eyebrow{font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:1.2rem;display:flex;align-items:center;gap:0.7rem;}
+    .hero-eyebrow::before{content:'';display:inline-block;width:2rem;height:1px;background:var(--accent);}
+    h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,5vw,4.2rem);font-weight:700;line-height:1.1;color:var(--ink);margin-bottom:0.4rem;}
+    .hero-title-role{font-family:'Playfair Display',serif;font-size:clamp(1rem,2vw,1.3rem);font-weight:400;font-style:italic;color:var(--ink3);margin-bottom:1.8rem;}
+    .hero-bio{font-size:1.05rem;color:var(--ink2);max-width:46ch;margin-bottom:2.5rem;font-weight:300;line-height:1.8;}
+    .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;}
+    .btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.8rem;border-radius:2px;font-size:0.82rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;transition:all 0.2s;cursor:pointer;border:none;}
+    .btn-primary{background:var(--accent);color:#fff;}
+    .btn-primary:hover{background:#1e4d38;transform:translateY(-1px);}
+    .btn-outline{background:transparent;color:var(--accent);border:1.5px solid var(--accent);}
+    .btn-outline:hover{background:var(--accent3);}
+    .hero-visual{display:flex;justify-content:center;align-items:center;position:relative;}
+    .avatar-frame{width:320px;height:320px;border-radius:50%;background:linear-gradient(135deg,var(--accent3) 0%,var(--bg2) 100%);display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 0 0 12px var(--bg),0 0 0 13px var(--border),var(--shadow);}
+    .avatar-frame::before{content:'';position:absolute;inset:-20px;border-radius:50%;border:1px dashed var(--accent2);opacity:0.4;animation:spin 30s linear infinite;}
+    @keyframes spin{to{transform:rotate(360deg);}}
+    .avatar-initials{font-family:'Playfair Display',serif;font-size:5rem;font-weight:700;color:var(--accent);opacity:0.6;user-select:none;}
+    .hero-tags{position:absolute;bottom:-1.5rem;left:50%;transform:translateX(-50%);display:flex;gap:0.5rem;}
+    .tag{background:var(--card);border:1px solid var(--border);padding:0.3rem 0.9rem;border-radius:20px;font-size:0.72rem;font-family:'DM Mono',monospace;color:var(--accent);white-space:nowrap;box-shadow:var(--shadow);}
+    .stats-bar{background:var(--accent);color:#fff;display:flex;justify-content:center;}
+    .stat-item{flex:1;max-width:220px;text-align:center;padding:1.8rem 1rem;border-right:1px solid rgba(255,255,255,0.15);}
+    .stat-item:last-child{border-right:none;}
+    .stat-num{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;display:block;line-height:1;margin-bottom:0.3rem;}
+    .stat-label{font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;opacity:0.75;font-family:'DM Mono',monospace;}
+    .nav-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem;padding:5rem 4rem;}
+    .nav-card{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:2.2rem;text-decoration:none;color:var(--ink);position:relative;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s;}
+    .nav-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+    .nav-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));}
+    .nav-card-icon{font-size:2rem;margin-bottom:1rem;}
+    .nav-card h3{font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:0.5rem;color:var(--ink);}
+    .nav-card p{font-size:0.85rem;color:var(--ink3);line-height:1.6;}
+    .nav-card-arrow{position:absolute;bottom:1.5rem;right:1.5rem;color:var(--accent);font-size:1.1rem;opacity:0.5;transition:opacity 0.2s,transform 0.2s;}
+    .nav-card:hover .nav-card-arrow{opacity:1;transform:translateX(3px);}
+    footer{background:var(--ink);color:rgba(255,255,255,0.5);text-align:center;padding:2rem;font-size:0.78rem;font-family:'DM Mono',monospace;letter-spacing:0.06em;}
+    footer span{color:var(--accent2);}
+    .fade-up{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease;}
+    .fade-up.visible{opacity:1;transform:none;}
+    @media(max-width:900px){
+      nav{padding:1rem 2rem;}.nav-links{gap:1rem;}
+      .hero{grid-template-columns:1fr;padding:7rem 2rem 4rem;text-align:center;}
+      .hero-bio{max-width:100%;}.hero-actions{justify-content:center;}.hero-visual{display:none;}
+      .stats-bar{flex-wrap:wrap;}.stat-item{flex:1 1 40%;border-right:none;border-bottom:1px solid rgba(255,255,255,0.15);}
+      .nav-cards{padding:3rem 2rem;}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Dr. Suman Das</a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="teaching.html">Teaching</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text fade-up">
+    <div class="hero-eyebrow">Assistant Professor · Chemistry</div>
+    <h1>Dr. Suman Das</h1>
+    <div class="hero-title-role">Department of Chemistry, GITAM University, Visakhapatnam</div>
+    <p class="hero-bio">
+      Computational chemist working at the frontier of biomolecular condensates, intrinsically disordered proteins, and deep eutectic solvents — using molecular dynamics and ML to reveal the hidden physics of complex chemical systems.
+    </p>
+    <div class="hero-actions">
+      <a href="research.html" class="btn btn-primary">View Research</a>
+      <a href="publications.html" class="btn btn-outline">Publications</a>
+      <a href="https://scholar.google.com/citations?user=kLgNSysAAAAJ&hl=en" class="btn btn-outline" target="_blank">Google Scholar</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="avatar-frame">
+      <img src="photo.jpg" alt="Dr. Suman Das" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
+    </div>
+    <div class="hero-tags">
+      <span class="tag">h-index: 20</span>
+      <span class="tag">27 Publications</span>
+      <span class="tag">Ramanujan Fellow</span>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item fade-up"><span class="stat-num">27</span><span class="stat-label">Publications</span></div>
+  <div class="stat-item fade-up"><span class="stat-num">20</span><span class="stat-label">h-index</span></div>
+  <div class="stat-item fade-up"><span class="stat-num">23</span><span class="stat-label">i10-index</span></div>
+</div>
+
+<!-- NAV CARDS -->
+<div class="nav-cards">
+  <a href="about.html" class="nav-card fade-up">
+    <div class="nav-card-icon">👤</div>
+    <h3>About</h3>
+    <p>Background, education, awards, and research philosophy.</p>
+    <span class="nav-card-arrow">→</span>
+  </a>
+  <a href="research.html" class="nav-card fade-up">
+    <div class="nav-card-icon">🧬</div>
+    <h3>Research</h3>
+    <p>Ongoing projects in phase separation, DES, ionic liquids, and IDPs.</p>
+    <span class="nav-card-arrow">→</span>
+  </a>
+  <a href="publications.html" class="nav-card fade-up">
+    <div class="nav-card-icon">📄</div>
+    <h3>Publications</h3>
+    <p>Full list of 27 peer-reviewed papers, book chapters, and more.</p>
+    <span class="nav-card-arrow">→</span>
+  </a>
+  <a href="teaching.html" class="nav-card fade-up">
+    <div class="nav-card-icon">🎓</div>
+    <h3>Teaching</h3>
+    <p>Courses taught and students mentored at GITAM and beyond.</p>
+    <span class="nav-card-arrow">→</span>
+  </a>
+  <a href="contact.html" class="nav-card fade-up">
+    <div class="nav-card-icon">✉️</div>
+    <h3>Contact</h3>
+    <p>Reach out for collaborations, student inquiries, or any questions.</p>
+    <span class="nav-card-arrow">→</span>
+  </a>
+</div>
+
+<footer>
+  <p>© 2026 <span>Dr. Suman Das</span> · Department of Chemistry, GITAM University, Visakhapatnam · Ramanujan Fellow, SERB 2023</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e,i) => { if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);observer.unobserve(e.target);} });
+  },{threshold:0.1});
+  document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
