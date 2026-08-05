@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Publications — Dr. Suman Das</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #f5f2eb;
+      --bg2: #edeade;
+      --ink: #1a1a18;
+      --ink2: #4a4a42;
+      --ink3: #8a8a7a;
+      --accent: #2d6a4f;
+      --accent2: #52b788;
+      --accent3: #b7e4c7;
+      --gold: #c9a84c;
+      --card: #fffef9;
+      --border: #d8d4c8;
+      --shadow: 0 2px 24px rgba(26,26,24,0.08);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; overflow-x: hidden; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 4rem; background: rgba(245,242,235,0.88); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: 'DM Mono', monospace; font-size: 0.78rem; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; }
+    .nav-links { display: flex; gap: 2.4rem; list-style: none; }
+    .nav-links a { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink2); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+
+    /* PAGE HEADER */
+    .page-header {
+      padding: 9rem 4rem 4rem;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.7rem; display: flex; align-items: center; gap: 0.7rem; }
+    .page-eyebrow::before { content: ''; display: inline-block; width: 2rem; height: 1px; background: var(--accent); }
+    h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; }
+    .page-sub { color: var(--ink3); font-size: 0.92rem; margin-top: 0.5rem; }
+    .page-sub a { color: var(--accent); text-decoration: none; }
+    .page-sub a:hover { text-decoration: underline; }
+    .section-line { width: 3rem; height: 2px; background: var(--gold); margin-top: 1rem; }
+
+    /* STATS */
+    .pub-stats {
+      display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .pub-stat {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--accent);
+      padding: 1rem 1.8rem;
+      border-radius: 0 0 4px 4px;
+      text-align: center;
+    }
+    .pub-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      display: block;
+      line-height: 1;
+    }
+    .pub-stat-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink3);
+    }
+
+<main class="main">
+
+    <section class="publications-header fade-up">
+        <div class="page-eyebrow">Research Output</div>
+
+        <h1>Publications</h1>
+
+        <p class="page-description">
+            Peer-reviewed journal articles.
+        </p>
+
+        <div class="section-line"></div>
+
+        <div class="search-wrapper">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search publications..."
+            >
+        </div>
+
+    </section>
+
+    <section id="publication-list" class="publication-list"></section>
+
+</main>
+
+
+<footer>
+  <p>© 2026 <span>Dr. Suman Das</span> · Department of Chemistry, GITAM University, Visakhapatnam</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+<script src="js/publications.js"></script>
+</body>
+</html>
+
+
+
+
