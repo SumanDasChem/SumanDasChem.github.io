@@ -27,8 +27,32 @@
     .scholar-card{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:2rem;position:relative;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s;}
     .scholar-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
     .scholar-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));}
-    .scholar-avatar{width:3rem;height:3rem;border-radius:50%;background:var(--accent3);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--accent);margin-bottom:1rem;}
-    .scholar-card h3{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:var(--ink);margin-bottom:0.3rem;}
+    .scholar-photo{
+    width:140px;
+    height:140px;
+    display:block;
+    margin:0 auto 1.2rem;
+    border-radius:50%;
+    object-fit:cover;
+    object-position:center;
+    border:4px solid var(--accent3);
+    box-shadow:0 6px 20px rgba(0,0,0,.12);
+}
+    .scholar-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:2rem;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+    transition:.25s;
+}
+
+.scholar-card:hover{
+    transform:translateY(-5px);
+    box-shadow:var(--shadow);
+}
     .scholar-status{font-family:'DM Mono',monospace;font-size:0.68rem;padding:0.15rem 0.6rem;border-radius:20px;display:inline-block;margin-bottom:0.8rem;}
     .status-current{background:var(--accent3);color:var(--accent);border:1px solid var(--accent2);}
     .status-alumni{background:var(--bg2);color:var(--ink3);border:1px solid var(--border);}
@@ -73,15 +97,22 @@
     <h2>PhD Scholars</h2>
     <div class="scholars-grid">
 
-      <div class="scholar-card">
-         <img src="scholar1.jpg" alt="Roja Satvika Puvvada">
-        <div class="scholar-avatar">A</div>
-        <h3>Roja Satvika Puvvada</h3>
-        <span class="scholar-status status-current">PhD · Ongoing</span>
-        <p>Research topic / area of focus goes here.</p>
-        <div class="scholar-meta">Joined: 2024</div>
-      </div>
+    <div class="scholar-card">
+    <img class="scholar-photo"
+         src="scholar1.jpg"
+         alt="Roja Satvika Puvvada">
 
+    <h3>Roja Satvika Puvvada</h3>
+
+    <span class="scholar-status status-current">
+        PhD · Ongoing
+    </span>
+
+    <p>Research topic / area of focus goes here.</p>
+
+    <div class="scholar-meta">
+        Joined: 2024
+  
     </div>
   </div>
 
