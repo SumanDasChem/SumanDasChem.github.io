@@ -22,173 +22,187 @@
     .section-line{width:3rem;height:2px;background:var(--gold);margin-top:1rem;}
     .section-eyebrow{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.7rem;}
     .main{padding:4rem;}
-    .section-block{
-    margin-bottom:5rem;
-}/* ==========================
-   CURRENT FOCUS AREA
-========================== */
+    .section-block{margin-bottom:5rem;}
 
-.research-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:2rem;
-    margin-top:2rem;
-    align-items:stretch;
-}
-
-.research-card{
-    position:relative;
-    background:var(--card);
-    border:1px solid var(--border);
-    border-top:5px solid var(--accent);
-    border-radius:0 0 8px 8px;
-    padding:2rem;
-    min-height:300px;
-    display:flex;
-    flex-direction:column;
-    transition:all .3s ease;
-    box-shadow:0 5px 18px rgba(0,0,0,.05);
-}
-
-.research-card:hover{
-    transform:translateY(-8px);
-    border-color:var(--accent2);
-    box-shadow:0 16px 35px rgba(0,0,0,.10);
-}
-
-.research-icon{
-    width:64px;
-    height:64px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:2rem;
-    border-radius:50%;
-    background:var(--accent3);
-    color:var(--accent);
-    margin-bottom:1.4rem;
-    border:1px solid rgba(45,106,79,.15);
-}
-
-.research-card h3{
-    font-family:'Playfair Display',serif;
-    font-size:1.2rem;
-    font-weight:700;
-    color:var(--ink);
-    line-height:1.35;
-    margin-bottom:1rem;
-}
-
-.research-card p{
-    color:var(--ink2);
-    font-size:.92rem;
-    line-height:1.8;
-    flex-grow:1;
-}
-
-/* Small accent line */
-
-.research-card::after{
-    content:"";
-    width:45px;
-    height:2px;
-    background:var(--gold);
-    margin-top:1.5rem;
-}
-
-/* Tablet */
-
-@media (max-width:992px){
-
-    .research-grid{
-        grid-template-columns:repeat(2,1fr);
+    /* ==========================
+       RESEARCH HIGHLIGHTS (FIG LEFT, TEXT RIGHT)
+    ========================== */
+    .research-list{
+      display:flex;
+      flex-direction:column;
+      gap:2.5rem;
+      margin-top:2rem;
     }
 
-}
-
-/* Mobile */
-
-@media (max-width:768px){
-
-    .research-grid{
-        grid-template-columns:1fr;
+    .research-item{
+      display:grid;
+      grid-template-columns:380px 1fr;
+      gap:2.5rem;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:6px;
+      padding:2rem;
+      align-items:center;
+      transition:all .3s ease;
+      box-shadow:0 4px 20px rgba(0,0,0,0.04);
     }
 
-    .research-card{
-        min-height:auto;
+    .research-item:hover{
+      transform:translateY(-4px);
+      border-color:var(--accent2);
+      box-shadow:0 12px 30px rgba(0,0,0,0.08);
     }
 
-}
-    .tools-grid{display:flex;flex-wrap:wrap;gap:0.7rem;margin-top:1rem;}
-    .tool-tag{font-family:'DM Mono',monospace;font-size:0.7rem;padding:0.25rem 0.8rem;border-radius:20px;background:var(--bg2);color:var(--ink2);border:1px solid var(--border);}
+    .research-fig{
+      width:100%;
+      border-radius:4px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      background:var(--bg);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .research-fig svg,
+    .research-fig img{
+      width:100%;
+      height:auto;
+      display:block;
+    }
+
+    .research-info h3{
+      font-family:'Playfair Display',serif;
+      font-size:1.35rem;
+      font-weight:700;
+      color:var(--ink);
+      line-height:1.3;
+      margin-bottom:1rem;
+    }
+
+    .research-info p{
+      color:var(--ink2);
+      font-size:0.95rem;
+      line-height:1.8;
+      font-weight:300;
+    }
+
+    /* ==========================
+       COMPACT TOOLS SECTION
+    ========================== */
+    .tools-container{
+      display:flex;
+      flex-direction:column;
+      gap:1.2rem;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:6px;
+      padding:1.8rem 2rem;
+      box-shadow:0 4px 20px rgba(0,0,0,0.04);
+    }
+
+    .tool-group{
+      display:flex;
+      align-items:center;
+      gap:1.5rem;
+      flex-wrap:wrap;
+    }
+
+    .tool-category{
+      font-family:'DM Mono',monospace;
+      font-size:0.75rem;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      color:var(--accent);
+      font-weight:600;
+      min-width:160px;
+    }
+
+    .tool-badges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:0.5rem;
+    }
+
+    .tool-tag{
+      font-family:'DM Mono',monospace;
+      font-size:0.75rem;
+      padding:0.3rem 0.8rem;
+      border-radius:4px;
+      background:var(--bg);
+      color:var(--ink);
+      border:1px solid var(--border);
+    }
+
+    /* ==========================
+       COLLABORATIONS
+    ========================== */
     .collab-grid{
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:1.5rem;
-    margin-top:1.5rem;
-}
-
-.collab-card{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:6px;
-    padding:1.5rem;
-    transition:all .25s ease;
-    min-height:130px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-}
-
-.collab-card:hover{
-    transform:translateY(-3px);
-    box-shadow:var(--shadow);
-    border-color:var(--accent2);
-}
-
-.collab-card a{
-    color:var(--accent);
-    text-decoration:none;
-    font-weight:600;
-    font-size:1rem;
-    margin-bottom:.45rem;
-}
-
-.collab-card a:hover{
-    text-decoration:underline;
-}
-
-.collab-card p,
-.collab-card span{
-    color:var(--ink3);
-    font-size:.86rem;
-    line-height:1.6;
-}
-
-@media (max-width:768px){
-    .collab-grid{
-        grid-template-columns:1fr;
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:1.5rem;
+      margin-top:1.5rem;
     }
-}
 
-/* Mobile */
-@media(max-width:768px){
-    .collab-list{
-        grid-template-columns:1fr;
+    .collab-card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:6px;
+      padding:1.5rem;
+      transition:all .25s ease;
+      min-height:130px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
     }
-}
-    .collab-item{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:1.2rem 1.6rem;display:flex;align-items:center;gap:1.2rem;}
-    .collab-item a{color:var(--accent);text-decoration:none;font-weight:500;}
-    .collab-item a:hover{text-decoration:underline;}
-    .collab-item p{font-size:0.85rem;color:var(--ink3);}
+
+    .collab-card:hover{
+      transform:translateY(-3px);
+      box-shadow:var(--shadow);
+      border-color:var(--accent2);
+    }
+
+    .collab-card a{
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:600;
+      font-size:1rem;
+      margin-bottom:.45rem;
+    }
+
+    .collab-card a:hover{
+      text-decoration:underline;
+    }
+
+    .collab-card p,
+    .collab-card span{
+      color:var(--ink3);
+      font-size:.86rem;
+      line-height:1.6;
+    }
+
     .fade-up{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease;}
     .fade-up.visible{opacity:1;transform:none;}
     footer{background:var(--ink);color:rgba(255,255,255,0.5);text-align:center;padding:2rem;font-size:0.78rem;font-family:'DM Mono',monospace;letter-spacing:0.06em;}
     footer span{color:var(--accent2);}
-    @media(max-width:900px){nav{padding:1rem 2rem;}.nav-links{gap:1rem;}.page-header,.main{padding:7rem 2rem 2rem;}}
+
+    @media(max-width:992px){
+      .research-item{
+        grid-template-columns:1fr;
+        gap:1.5rem;
+      }
+    }
+
+    @media(max-width:768px){
+      nav{padding:1rem 2rem;}.nav-links{gap:1rem;}
+      .page-header,.main{padding:7rem 2rem 2rem;}
+      .collab-grid{grid-template-columns:1fr;}
+      .tool-group{flex-direction:column;align-items:flex-start;gap:0.5rem;}
+    }
   </style>
 </head>
 <body>
+
 <nav>
   <a href="index.html" class="nav-logo">Dr. Suman Das</a>
   <ul class="nav-links">
@@ -209,135 +223,289 @@
 
 <div class="main">
 
+  <!-- CURRENT FOCUS AREAS WITH EMBEDDED TOC FIGURES (FIG LEFT, TEXT RIGHT) -->
   <div class="section-block fade-up">
     <div class="section-eyebrow">Research Interests</div>
     <h2>Current Focus Areas</h2>
-    <div class="research-grid">
-      <div class="research-card">
-        <div class="research-icon">🧬</div>
-        <h3>Liquid-Liquid Phase Separation in Membraneless Organelles</h3>
-        <p>Developing sequence-dependent coarse-grained and analytical models to understand how intrinsically disordered proteins undergo phase separation — with direct relevance to gene regulation, stress response, and neurodegenerative disease.</p>
+
+    <div class="research-list">
+      
+      <!-- Area 1: LLPS -->
+      <div class="research-item">
+        <div class="research-fig">
+          <!-- Inline Vector TOC Figure: LLPS -->
+          <svg viewBox="0 0 500 300" width="100%" height="100%">
+            <defs>
+              <radialGradient id="dropletGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#52b788" stop-opacity="0.35"/>
+                <stop offset="70%" stop-color="#2d6a4f" stop-opacity="0.15"/>
+                <stop offset="100%" stop-color="#2d6a4f" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect width="500" height="300" fill="#fffef9"/>
+            <rect x="25" y="45" width="130" height="190" rx="4" fill="#f5f2eb" stroke="#8a8a7a" stroke-width="1" stroke-dasharray="4 4"/>
+            <text x="90" y="32" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="12" font-weight="600" fill="#1a1a18">Dilute Phase</text>
+            <path d="M 40 80 Q 60 60 75 90 T 95 110" fill="none" stroke="#2d6a4f" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M 110 140 Q 130 160 115 180 T 135 210" fill="none" stroke="#52b788" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M 50 170 Q 70 190 85 160 T 60 130" fill="none" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/>
+            <g transform="translate(170, 130)">
+              <polygon points="35,5 45,10 35,15" fill="#1a1a18"/>
+              <path d="M 0 10 L 35 10" stroke="#1a1a18" stroke-width="2"/>
+              <text x="22" y="-5" text-anchor="middle" font-family="'DM Mono', monospace" font-size="10" fill="#2d6a4f">MD Sim</text>
+            </g>
+            <rect x="235" y="45" width="240" height="190" rx="4" fill="#f5f2eb" stroke="#8a8a7a" stroke-width="1"/>
+            <text x="355" y="32" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="12" font-weight="600" fill="#1a1a18">Dense Phase (Condensate)</text>
+            <circle cx="355" cy="140" r="75" fill="url(#dropletGlow)" stroke="#2d6a4f" stroke-width="1.5" stroke-dasharray="3 2"/>
+            <path d="M 310 120 C 330 90, 360 160, 390 120 S 410 160, 380 180" fill="none" stroke="#2d6a4f" stroke-width="3" stroke-linecap="round"/>
+            <path d="M 330 160 C 350 120, 370 170, 340 190 S 310 150, 360 130" fill="none" stroke="#52b788" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M 320 100 C 370 110, 350 180, 390 160 S 400 110, 340 110" fill="none" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/>
+            <text x="250" y="275" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="12" font-weight="500" fill="#4a4a42">Coarse-Grained &amp; All-Atom Conformational Dynamics</text>
+          </svg>
+        </div>
+        <div class="research-info">
+          <h3>Liquid-Liquid Phase Separation in Membraneless Organelles</h3>
+          <p>
+            We develop and deploy sequence-dependent analytical models alongside coarse-grained and all-atom molecular dynamics simulations to decode the molecular driving forces behind biomolecular condensation[cite: 1, 2]. By exploring how intrinsically disordered proteins (IDPs) transition between dilute and condensed dense phases[cite: 1], our work elucidates the thermodynamics of droplet formation[cite: 2]. These investigations yield vital insights into cellular compartmentalization, stress granule assembly, and aberrant transitions underlying neurodegenerative disorders[cite: 2].
+          </p>
+        </div>
       </div>
 
-      <div class="research-card">
-        <div class="research-icon">🤖</div>
-        <h3>Machine Learning Interatomic Potentials</h3>
-        <p>Developing and benchmarking ML-based interatomic potentials (DeePMD, MACE) trained on ab initio MD data for electrolyte systems — bridging quantum accuracy with classical simulation speed.</p>
+      <!-- Area 2: Protein Stabilization in DES -->
+      <div class="research-item">
+        <div class="research-fig">
+          <!-- Inline Vector TOC Figure: DES -->
+          <svg viewBox="0 0 500 300" width="100%" height="100%">
+            <defs>
+              <radialGradient id="solvationShell" cx="50%" cy="50%" r="50%">
+                <stop offset="60%" stop-color="#b7e4c7" stop-opacity="0"/>
+                <stop offset="90%" stop-color="#52b788" stop-opacity="0.3"/>
+                <stop offset="100%" stop-color="#2d6a4f" stop-opacity="0.6"/>
+              </radialGradient>
+            </defs>
+            <rect width="500" height="300" fill="#fffef9"/>
+            <g transform="translate(30, 40)">
+              <rect x="0" y="0" width="180" height="190" rx="4" fill="#f5f2eb" stroke="#d8d4c8" stroke-width="1"/>
+              <text x="90" y="-12" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="12" font-weight="600" fill="#1a1a18">Aqueous Stress</text>
+              <path d="M 30 140 Q 60 40 90 120 T 150 70" fill="none" stroke="#e63946" stroke-width="3" stroke-linecap="round"/>
+              <text x="90" y="170" text-anchor="middle" font-family="'DM Mono', monospace" font-size="10" fill="#8a8a7a">Unfolded / Denatured</text>
+            </g>
+            <g transform="translate(220, 125)">
+              <polygon points="10,5 50,5 50,0 60,10 50,20 50,15 10,15" fill="#2d6a4f"/>
+              <text x="35" y="-6" text-anchor="middle" font-family="'DM Mono', monospace" font-size="11" font-weight="600" fill="#2d6a4f">+ DES</text>
+            </g>
+            <g transform="translate(290, 40)">
+              <rect x="0" y="0" width="180" height="190" rx="4" fill="#f5f2eb" stroke="#2d6a4f" stroke-width="1.5"/>
+              <text x="90" y="-12" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="12" font-weight="600" fill="#2d6a4f">DES Solvation Shield</text>
+              <circle cx="90" cy="95" r="55" fill="url(#solvationShell)"/>
+              <path d="M 65 95 C 65 75, 80 75, 80 95 C 80 115, 95 115, 95 95 C 95 75, 110 75, 110 95" fill="none" stroke="#2d6a4f" stroke-width="3.5" stroke-linecap="round"/>
+              <circle cx="45" cy="55" r="4" fill="#c9a84c"/>
+              <circle cx="135" cy="135" r="4" fill="#c9a84c"/>
+              <circle cx="130" cy="55" r="3" fill="#52b788"/>
+              <circle cx="50" cy="130" r="3" fill="#52b788"/>
+              <line x1="45" y1="55" x2="65" y2="75" stroke="#8a8a7a" stroke-width="1" stroke-dasharray="2 2"/>
+              <line x1="130" y1="55" x2="110" y2="75" stroke="#8a8a7a" stroke-width="1" stroke-dasharray="2 2"/>
+              <text x="90" y="170" text-anchor="middle" font-family="'DM Mono', monospace" font-size="10" fill="#2d6a4f">Native Folded State</text>
+            </g>
+            <text x="250" y="275" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="12" font-weight="500" fill="#4a4a42">Preferential Exclusion &amp; Hydrogen-Bond Network Confinement</text>
+          </svg>
+        </div>
+        <div class="research-info">
+          <h3>Protein Stability in Deep Eutectic Solvents (DESs)</h3>
+          <p>
+            We examine how deep eutectic solvents (DESs) and ionic liquids modulate macromolecular stability, folding dynamics, and enzymatic resilience[cite: 1, 2]. By probing the hydrogen-bond donor–acceptor networks and preferential exclusion phenomena in multi-component ionic mixtures, we unearth the microscopic mechanisms behind non-aqueous protein protection[cite: 1, 2]. This research offers essential foundational principles for green bioprocessing, whole-cell biocatalysis, and the long-term stabilization of therapeutics[cite: 2].
+          </p>
+        </div>
       </div>
-          
-      <div class="research-card">
-        <div class="research-icon">🔬</div>
-        <h3>Protein Stability in Non-Aqueous Solvents</h3>
-        <p>Understanding how non-aqueous environments — including DES and ionic liquids — alter protein structure, stability, and function, with implications for green chemistry and industrial biotechnology.</p>
+
+      <!-- Area 3: ML Potentials -->
+      <div class="research-item">
+        <div class="research-fig">
+          <!-- Inline Vector TOC Figure: ML Potentials -->
+          <svg viewBox="0 0 500 300" width="100%" height="100%">
+            <rect width="500" height="300" fill="#fffef9"/>
+            <g transform="translate(30, 45)">
+              <rect x="0" y="0" width="100" height="190" rx="4" fill="#f5f2eb" stroke="#d8d4c8" stroke-width="1"/>
+              <text x="50" y="-12" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" font-weight="600" fill="#1a1a18">Atomic Config</text>
+              <circle cx="50" cy="95" r="9" fill="#2d6a4f"/>
+              <circle cx="28" cy="65" r="6" fill="#52b788"/>
+              <circle cx="72" cy="70" r="6" fill="#52b788"/>
+              <circle cx="32" cy="125" r="6" fill="#c9a84c"/>
+              <circle cx="68" cy="130" r="6" fill="#c9a84c"/>
+              <line x1="50" y1="95" x2="28" y2="65" stroke="#8a8a7a" stroke-width="1" stroke-dasharray="2 2"/>
+              <line x1="50" y1="95" x2="72" y2="70" stroke="#8a8a7a" stroke-width="1" stroke-dasharray="2 2"/>
+              <line x1="50" y1="95" x2="32" y2="125" stroke="#8a8a7a" stroke-width="1" stroke-dasharray="2 2"/>
+              <line x1="50" y1="95" x2="68" y2="130" stroke="#8a8a7a" stroke-width="1" stroke-dasharray="2 2"/>
+              <text x="50" y="170" text-anchor="middle" font-family="'DM Mono', monospace" font-size="9" fill="#8a8a7a">{R_ij, Z_i}</text>
+            </g>
+            <g transform="translate(160, 45)">
+              <rect x="0" y="0" width="150" height="190" rx="4" fill="#f5f2eb" stroke="#2d6a4f" stroke-width="1.2"/>
+              <text x="75" y="-12" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" font-weight="600" fill="#2d6a4f">GNN / Equivariant</text>
+              <circle cx="25" cy="60" r="5" fill="#2d6a4f"/><circle cx="25" cy="95" r="5" fill="#2d6a4f"/><circle cx="25" cy="130" r="5" fill="#2d6a4f"/>
+              <circle cx="75" cy="50" r="5" fill="#52b788"/><circle cx="75" cy="80" r="5" fill="#52b788"/><circle cx="75" cy="110" r="5" fill="#52b788"/><circle cx="75" cy="140" r="5" fill="#52b788"/>
+              <circle cx="125" cy="95" r="6" fill="#c9a84c"/>
+              <line x1="25" y1="60" x2="75" y2="50" stroke="#b7e4c7" stroke-width="1"/><line x1="25" y1="60" x2="75" y2="80" stroke="#b7e4c7" stroke-width="1"/>
+              <line x1="25" y1="95" x2="75" y2="80" stroke="#b7e4c7" stroke-width="1"/><line x1="25" y1="95" x2="75" y2="110" stroke="#b7e4c7" stroke-width="1"/>
+              <line x1="25" y1="130" x2="75" y2="110" stroke="#b7e4c7" stroke-width="1"/><line x1="25" y1="130" x2="75" y2="140" stroke="#b7e4c7" stroke-width="1"/>
+              <line x1="75" y1="50" x2="125" y2="95" stroke="#b7e4c7" stroke-width="1"/><line x1="75" y1="80" x2="125" y2="95" stroke="#b7e4c7" stroke-width="1"/>
+              <line x1="75" y1="110" x2="125" y2="95" stroke="#b7e4c7" stroke-width="1"/><line x1="75" y1="140" x2="125" y2="95" stroke="#b7e4c7" stroke-width="1"/>
+              <text x="75" y="170" text-anchor="middle" font-family="'DM Mono', monospace" font-size="9" fill="#2d6a4f">Message Passing</text>
+            </g>
+            <g transform="translate(340, 45)">
+              <rect x="0" y="0" width="130" height="190" rx="4" fill="#f5f2eb" stroke="#d8d4c8" stroke-width="1"/>
+              <text x="65" y="-12" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" font-weight="600" fill="#1a1a18">DFT Accuracy</text>
+              <path d="M 20 60 Q 45 150 75 110 T 110 70" fill="none" stroke="#2d6a4f" stroke-width="2.5"/>
+              <circle cx="60" cy="120" r="4" fill="#c9a84c"/>
+              <text x="65" y="145" text-anchor="middle" font-family="'DM Mono', monospace" font-size="11" font-weight="600" fill="#1a1a18">Energy &amp; Forces</text>
+              <text x="65" y="170" text-anchor="middle" font-family="'DM Mono', monospace" font-size="9" fill="#52b788">MD: ns → μs scale</text>
+            </g>
+            <text x="250" y="275" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="12" font-weight="500" fill="#4a4a42">Quantum Accuracy at Classical Molecular Dynamics Speeds</text>
+          </svg>
+        </div>
+        <div class="research-info">
+          <h3>Machine Learning Interatomic Potentials (MLIP)</h3>
+          <p>
+            We develop and benchmark machine learning-based interatomic potentials (such as DeePMD-kit and equivariant graph neural networks like MACE) trained directly on ab initio MD data[cite: 2]. This strategy circumvents classical force field limitations by retaining quantum mechanical density functional theory (DFT) precision at classical computational speed[cite: 1, 2]. These potentials unlock large-scale, long-timescale simulations of complex electrolytes and disordered interfacial matter[cite: 1, 2].
+          </p>
+        </div>
       </div>
+
     </div>
   </div>
 
+  <!-- COMPACT TOOLS & RESOURCES -->
   <div class="section-block fade-up">
     <div class="section-eyebrow">Computational Infrastructure</div>
     <h2>Tools &amp; Resources</h2>
-    <div class="research-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
-      <div class="research-card" style="padding:1.5rem;">
-        <h3 style="font-size:0.95rem;margin-bottom:0.5rem;">Simulation Codes</h3>
-        <p>CP2K · GROMACS · LAMMPS · HOOMD-Blue · DL_POLY · Gaussian</p>
+    <div class="tools-container">
+      <div class="tool-group">
+        <span class="tool-category">Simulation Codes</span>
+        <div class="tool-badges">
+          <span class="tool-tag">CP2K</span>
+          <span class="tool-tag">GROMACS</span>
+          <span class="tool-tag">LAMMPS</span>
+          <span class="tool-tag">HOOMD-Blue</span>
+          <span class="tool-tag">DL_POLY</span>
+          <span class="tool-tag">Gaussian</span>
+        </div>
       </div>
-      <div class="research-card" style="padding:1.5rem;">
-        <h3 style="font-size:0.95rem;margin-bottom:0.5rem;">ML Potentials</h3>
-        <p>DeePMD-kit · MACE</p>
+
+      <div class="tool-group">
+        <span class="tool-category">ML Potentials</span>
+        <div class="tool-badges">
+          <span class="tool-tag">DeePMD-kit</span>
+          <span class="tool-tag">MACE</span>
+        </div>
       </div>
-      <div class="research-card" style="padding:1.5rem;">
-        <h3 style="font-size:0.95rem;margin-bottom:0.5rem;">Visualization</h3>
-        <p>VMD · Packmol · Python (matplotlib, MDAnalysis)</p>
+
+      <div class="tool-group">
+        <span class="tool-category">Analysis &amp; Viz</span>
+        <div class="tool-badges">
+          <span class="tool-tag">VMD</span>
+          <span class="tool-tag">Packmol</span>
+          <span class="tool-tag">MDAnalysis</span>
+          <span class="tool-tag">Matplotlib</span>
+        </div>
       </div>
-      <div class="research-card" style="padding:1.5rem;">
-        <h3 style="font-size:0.95rem;margin-bottom:0.5rem;">HPC Access</h3>
-        <p>GITAM HPC · Local NVIDIA GPUs</p>
+
+      <div class="tool-group">
+        <span class="tool-category">HPC &amp; Hardware</span>
+        <div class="tool-badges">
+          <span class="tool-tag">GITAM HPC</span>
+          <span class="tool-tag">NVIDIA GPUs</span>
+        </div>
       </div>
-      <div class="research-card" style="padding:1.5rem;">
-        <h3 style="font-size:0.95rem;margin-bottom:0.5rem;">Programming</h3>
-        <p>Python · Fortran · C · C++</p>
+
+      <div class="tool-group">
+        <span class="tool-category">Languages</span>
+        <div class="tool-badges">
+          <span class="tool-tag">Python</span>
+          <span class="tool-tag">Fortran</span>
+          <span class="tool-tag">C / C++</span>
+        </div>
       </div>
     </div>
   </div>
-<!-- =========================
-     Collaborations
-========================= -->
 
-<div class="section-block fade-up">
-  <div class="section-eyebrow">Collaborators</div>
-  <h2>Collaborations</h2>
+  <!-- COLLABORATIONS -->
+  <div class="section-block fade-up">
+    <div class="section-eyebrow">Collaborators</div>
+    <h2>Collaborations</h2>
 
-  <div class="collab-grid">
+    <div class="collab-grid">
+      <div class="collab-card">
+        <a href="https://biochemistry.utoronto.ca/faculty/hue-sun-chan" target="_blank">
+          Prof. Hue Sun Chan
+        </a>
+        <p>University of Toronto, Canada</p>
+      </div>
 
-    <div class="collab-card">
-      <a href="https://biochemistry.utoronto.ca/faculty/hue-sun-chan" target="_blank">
-        Prof. Hue Sun Chan
-      </a>
-      <p>University of Toronto, Canada</p>
+      <div class="collab-card">
+        <a href="https://chemistry.iiti.ac.in/faculty/prof-anjan-chakraborty" target="_blank">
+          Prof. Anjan Chakraborty
+        </a>
+        <p>Indian Institute of Technology Indore</p>
+        <span>Indore, India</span>
+      </div>
+
+      <div class="collab-card">
+        <a href="https://www.bhu.ac.in/site/FacultyProfile/2_150?FA000155" target="_blank">
+          Prof. Surajit Rakshit
+        </a>
+        <p>Banaras Hindu University</p>
+        <span>Varanasi, India</span>
+      </div>
+
+      <div class="collab-card">
+        <a href="https://snu.edu.in/faculty/biswajit-guchhait/" target="_blank">
+          Prof. Biswajit Guchhait
+        </a>
+        <p>Shiv Nadar University</p>
+        <span>Delhi NCR, India</span>
+      </div>
+
+      <div class="collab-card">
+        <a href="https://www.gitam.edu/faculty/atanu-bhattacharya" target="_blank">
+          Prof. Atanu Bhattacharya
+        </a>
+        <p>GITAM Deemed to be University</p>
+        <span>Visakhapatnam, India</span>
+      </div>
+
+      <div class="collab-card">
+        <a href="https://www.gitam.edu/faculty/anik-sen" target="_blank">
+          Prof. Anik Sen
+        </a>
+        <p>GITAM Deemed to be University</p>
+        <span>Visakhapatnam, India</span>
+      </div>
+
+      <div class="collab-card">
+        <a href="https://www.gitam.edu/faculty/shibaji-basak" target="_blank">
+          Prof. Shibaji Basak
+        </a>
+        <p>GITAM Deemed to be University</p>
+        <span>Visakhapatnam, India</span>
+      </div>
+
+      <div class="collab-card">
+        <a href="https://www.gitam.edu/faculty/sujit-basak" target="_blank">
+          Prof. Sujit Basak
+        </a>
+        <p>GITAM Deemed to be University</p>
+        <span>Bengaluru, India</span>
+      </div>
     </div>
-
-    <div class="collab-card">
-      <a href="https://chemistry.iiti.ac.in/faculty/prof-anjan-chakraborty" target="_blank">
-        Prof. Anjan Chakraborty
-      </a>
-      <p>Indian Institute of Technology Indore</p>
-      <span>Indore, India</span>
-    </div>
-
-    <div class="collab-card">
-      <a href="https://www.bhu.ac.in/site/FacultyProfile/2_150?FA000155" target="_blank">
-        Prof. Surajit Rakshit
-      </a>
-      <p>Banaras Hindu University</p>
-      <span>Varanasi, India</span>
-    </div>
-
-    <div class="collab-card">
-      <a href="https://snu.edu.in/faculty/biswajit-guchhait/" target="_blank">
-        Prof. Biswajit Guchhait
-      </a>
-      <p>Shiv Nadar University</p>
-      <span>Delhi NCR, India</span>
-    </div>
-
-    <div class="collab-card">
-      <a href="https://www.gitam.edu/faculty/atanu-bhattacharya" target="_blank">
-        Prof. Atanu Bhattacharya
-      </a>
-      <p>GITAM Deemed to be University</p>
-      <span>Visakhapatnam, India</span>
-    </div>
-
-    <div class="collab-card">
-      <a href="https://www.gitam.edu/faculty/anik-sen" target="_blank">
-        Prof. Anik Sen
-      </a>
-      <p>GITAM Deemed to be University</p>
-      <span>Visakhapatnam, India</span>
-    </div>
-
-    <div class="collab-card">
-      <a href="https://www.gitam.edu/faculty/shibaji-basak" target="_blank">
-        Prof. Shibaji Basak
-      </a>
-      <p>GITAM Deemed to be University</p>
-      <span>Visakhapatnam, India</span>
-    </div>
-
-    <div class="collab-card">
-      <a href="https://www.gitam.edu/faculty/sujit-basak" target="_blank">
-        Prof. Sujit Basak
-      </a>
-      <p>GITAM Deemed to be University</p>
-      <span>Bengaluru, India</span>
-    </div>
-
   </div>
+
 </div>
 
-<footer><p>© 2026 <span>Dr. Suman Das</span> · Department of Chemistry, GITAM University, Visakhapatnam · Ramanujan Fellow, SERB 2023</p></footer>
+<footer>
+  <p>© 2026 <span>Dr. Suman Das</span> · Department of Chemistry, GITAM University, Visakhapatnam · Ramanujan Fellow, SERB 2023</p>
+</footer>
+
 <script>
   const observer = new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*100);observer.unobserve(e.target);}});},{threshold:0.08});
   document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
 </script>
-</body></html>
+</body>
+</html>
