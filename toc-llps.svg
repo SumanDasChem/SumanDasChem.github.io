@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300" width="100%" height="100%">
+  <defs>
+    <radialGradient id="dropletGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#52b788" stop-opacity="0.35"/>
+      <stop offset="70%" stop-color="#2d6a4f" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#2d6a4f" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <rect width="500" height="300" fill="#fffef9" rx="8" stroke="#d8d4c8" stroke-width="1.5"/>
+
+  <!-- Left: Dilute Phase Box -->
+  <rect x="25" y="45" width="130" height="190" rx="4" fill="#f5f2eb" stroke="#8a8a7a" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="90" y="32" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="12" font-weight="600" fill="#1a1a18">Dilute Phase</text>
+  
+  <!-- Dispersed IDP chains -->
+  <path d="M 40 80 Q 60 60 75 90 T 95 110" fill="none" stroke="#2d6a4f" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 110 140 Q 130 160 115 180 T 135 210" fill="none" stroke="#52b788" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 50 170 Q 70 190 85 160 T 60 130" fill="none" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Transition Arrow -->
+  <g transform="translate(170, 130)">
+    <path d="M 0 10 L 35 10" stroke="#1a1a18" stroke-width="2" marker-end="url(#arrow)"/>
+    <polygon points="35,5 45,10 35,15" fill="#1a1a18"/>
+    <text x="22" y="-5" text-anchor="middle" font-family="'DM Mono', monospace" font-size="10" fill="#2d6a4f">MD Sim</text>
+  </g>
+
+  <!-- Right: Condensed Phase (Droplet) -->
+  <rect x="235" y="45" width="240" height="190" rx="4" fill="#f5f2eb" stroke="#8a8a7a" stroke-width="1"/>
+  <text x="355" y="32" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="12" font-weight="600" fill="#1a1a18">Dense Phase (Condensate)</text>
+  
+  <!-- Droplet outline -->
+  <circle cx="355" cy="140" r="75" fill="url(#dropletGlow)" stroke="#2d6a4f" stroke-width="1.5" stroke-dasharray="3 2"/>
+  
+  <!-- Dense entangled IDP chains inside droplet -->
+  <g filter="url(#shadow)">
+    <path d="M 310 120 C 330 90, 360 160, 390 120 S 410 160, 380 180" fill="none" stroke="#2d6a4f" stroke-width="3" stroke-linecap="round"/>
+    <path d="M 330 160 C 350 120, 370 170, 340 190 S 310 150, 360 130" fill="none" stroke="#52b788" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 320 100 C 370 110, 350 180, 390 160 S 400 110, 340 110" fill="none" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/>
+    <path d="M 300 140 Q 330 150 360 140 T 410 140" fill="none" stroke="#1b4332" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- Footer Tag -->
+  <text x="250" y="275" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="12" font-weight="500" fill="#4a4a42">Coarse-Grained &amp; All-Atom Conformational Dynamics</text>
+</svg>
