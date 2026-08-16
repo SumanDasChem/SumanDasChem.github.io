@@ -9,12 +9,13 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
     body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;overflow-x:hidden;}
+    img{max-width:100%;height:auto;display:block;}
     nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 4rem;background:rgba(245,242,235,0.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);}
-    .nav-logo{font-family:'DM Mono',monospace;font-size:0.78rem;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;}
-    .nav-links{display:flex;gap:2.4rem;list-style:none;}
+    .nav-logo{font-family:'DM Mono',monospace;font-size:0.78rem;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;font-weight:600;}
+    .nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
     .nav-links a{font-size:0.82rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink2);text-decoration:none;transition:color 0.2s;}
     .nav-links a:hover,.nav-links a.active{color:var(--accent);}
-    .page-header{padding:9rem 4rem 4rem;border-bottom:1px solid var(--border);}
+    .page-header{padding:9rem 4rem 2rem;border-bottom:1px solid var(--border);}
     .page-eyebrow{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.7rem;display:flex;align-items:center;gap:0.7rem;}
     .page-eyebrow::before{content:'';display:inline-block;width:2rem;height:1px;background:var(--accent);}
     h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--ink);}
@@ -28,7 +29,7 @@
     .contact-card-box p{color:var(--ink2);font-weight:300;line-height:1.8;font-size:0.95rem;}
     
     .contact-links{display:flex;flex-direction:column;gap:0.8rem;margin-top:1rem;}
-    .contact-link{display:flex;align-items:center;gap:1rem;color:var(--ink2);text-decoration:none;font-size:0.9rem;transition:color 0.2s;padding:0.6rem 0;border-bottom:1px solid var(--border);}
+    .contact-link{display:flex;align-items:center;gap:1rem;color:var(--ink2);text-decoration:none;font-size:0.9rem;transition:color 0.2s;padding:0.6rem 0;border-bottom:1px solid var(--border);word-break:break-word;}
     .contact-link:last-child{border-bottom:none;}
     .contact-link:hover{color:var(--accent);}
     .contact-link-icon{width:2.2rem;height:2.2rem;background:var(--accent3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
@@ -44,8 +45,9 @@
     .footer-counter img:hover{opacity:1;}
     
     @media(max-width:900px){
-      nav{padding:1rem 2rem;}.nav-links{gap:1rem;}
-      .page-header,.main{padding:7rem 2rem 2rem;}
+      nav{padding:1rem 1.5rem;flex-direction:column;gap:0.8rem;}
+      .nav-links{gap:0.8rem 1.2rem;flex-wrap:wrap;justify-content:center;}
+      .page-header,.main{padding:7.5rem 1.5rem 2rem;}
       .contact-layout{grid-template-columns:1fr;gap:2rem;}
     }
   </style>
@@ -53,8 +55,9 @@
 <body>
 
 <nav>
-  <span class="nav-logo">Dr. Suman Das</span>
+  <a href="./" class="nav-logo">Dr. Suman Das</a>
   <ul class="nav-links">
+    <li><a href="./">Home</a></li>
     <li><a href="research.html">Research</a></li>
     <li><a href="publications.html">Publications</a></li>
     <li><a href="team.html">Team</a></li>
@@ -64,7 +67,11 @@
   </ul>
 </nav>
 
-
+<div class="page-header">
+  <div class="page-eyebrow">Get in Touch</div>
+  <h1>Contact</h1>
+  <div class="section-line"></div>
+</div>
 
 <div class="main">
   <div class="contact-layout">
