@@ -30,11 +30,38 @@
     .btn-primary:hover{background:#1e4d38;transform:translateY(-1px);}
     .btn-outline{background:transparent;color:var(--accent);border:1.5px solid var(--accent);}
     .btn-outline:hover{background:var(--accent3);}
+    
+    /* AVATAR FRAME & PHOTO POSITIONING */
     .hero-visual{display:flex;justify-content:center;align-items:center;position:relative;}
-    .avatar-frame{width:320px;height:320px;border-radius:50%;background:linear-gradient(135deg,var(--accent3) 0%,var(--bg2) 100%);display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 0 0 12px var(--bg),0 0 0 13px var(--border),var(--shadow);}
-    .avatar-frame::before{content:'';position:absolute;inset:-20px;border-radius:50%;border:1px dashed var(--accent2);opacity:0.4;animation:spin 30s linear infinite;}
+    .avatar-frame{
+      width:320px;
+      height:320px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--accent3) 0%,var(--bg2) 100%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      box-shadow:0 0 0 12px var(--bg),0 0 0 13px var(--border),var(--shadow);
+    }
+    .avatar-frame::before{
+      content:'';
+      position:absolute;
+      inset:-20px;
+      border-radius:50%;
+      border:1px dashed var(--accent2);
+      opacity:0.4;
+      animation:spin 30s linear infinite;
+    }
     @keyframes spin{to{transform:rotate(360deg);}}
-    .avatar-initials{font-family:'Playfair Display',serif;font-size:5rem;font-weight:700;color:var(--accent);opacity:0.6;user-select:none;}
+    
+    .avatar-frame img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center top; /* Ensures the top of the head is never clipped */
+      border-radius:50%;
+    }
     
     /* ABOUT SECTION & TIMELINE */
     section.about-section{padding:6rem 4rem;background:var(--bg2);}
@@ -70,23 +97,27 @@
       
       .hero{
         grid-template-columns:1fr;
-        padding:7.5rem 1.5rem 3rem;
+        padding:8.5rem 1.5rem 3rem; /* Extra top clearance so navbar never overlaps photo */
         text-align:center;
         gap:2.5rem;
       }
       .hero-bio{max-width:100%;margin-left:auto;margin-right:auto;}
       .hero-actions{justify-content:center;}
       
-      /* Photo visible and centered on mobile */
       .hero-visual{
         display:flex !important;
         justify-content:center;
-        order: -1; /* Places photo above the text on mobile */
-        margin-bottom: 1rem;
+        order: -1;
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
       }
       .avatar-frame{
         width:220px;
         height:220px;
+        box-shadow:0 0 0 8px var(--bg),0 0 0 9px var(--border),var(--shadow);
+      }
+      .avatar-frame::before{
+        inset:-12px; /* Pulls dashed ring inward so it stays within mobile viewport bounds */
       }
       
       section.about-section{padding:4rem 1.5rem;}
@@ -126,7 +157,7 @@
   </div>
   <div class="hero-visual fade-up">
     <div class="avatar-frame">
-      <img src="photo.jpg" alt="Dr. Suman Das" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
+      <img src="photo.jpg" alt="Dr. Suman Das" />
     </div>   
   </div>
 </section>
