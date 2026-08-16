@@ -21,9 +21,9 @@
     .section-line{width:3rem;height:2px;background:var(--gold);margin-top:1rem;}
     .main{padding:4rem;max-width:1200px;margin:0 auto;}
     
-    /* BALANCED 2-COLUMN LAYOUT */
-    .contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
-    .contact-card-box{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:2.2rem;box-shadow:var(--shadow);}
+    /* 2-COLUMN BALANCED LAYOUT */
+    .contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:stretch;}
+    .contact-card-box{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:2.2rem;box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:space-between;}
     .contact-card-box h3{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--ink);margin-bottom:1.2rem;}
     .contact-card-box p{color:var(--ink2);font-weight:300;line-height:1.8;font-size:0.95rem;}
     
@@ -35,8 +35,13 @@
     
     .fade-up{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease;}
     .fade-up.visible{opacity:1;transform:none;}
-    footer{background:var(--ink);color:rgba(255,255,255,0.5);text-align:center;padding:2rem;font-size:0.78rem;font-family:'DM Mono',monospace;letter-spacing:0.06em;margin-top:4rem;}
+    
+    /* FOOTER WITH CENTERED VISITOR TRACKER */
+    footer{background:var(--ink);color:rgba(255,255,255,0.5);text-align:center;padding:2.5rem 2rem 2rem;font-size:0.78rem;font-family:'DM Mono',monospace;letter-spacing:0.06em;margin-top:4rem;}
     footer span{color:var(--accent2);}
+    .footer-counter{margin-bottom:1.5rem;}
+    .footer-counter img{display:inline-block;border-radius:4px;opacity:0.9;transition:opacity 0.2s;}
+    .footer-counter img:hover{opacity:1;}
     
     @media(max-width:900px){
       nav{padding:1rem 2rem;}.nav-links{gap:1rem;}
@@ -70,18 +75,20 @@
     
     <!-- Left Column: Inquiries & Opportunities -->
     <div class="contact-card-box fade-up">
-      <h3>Open to Collaborations &amp; Inquiries</h3>
-      <p style="margin-bottom:1.4rem;">
-        Whether you are a prospective student interested in computational chemistry, a researcher looking to collaborate, or have any other inquiry — feel free to reach out. I typically respond within 2–3 business days.
-      </p>
-      
-      <div style="background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--accent);padding:1.2rem;border-radius:4px;margin-bottom:1.4rem;">
-        <h4 style="font-family:'DM Mono',monospace;font-size:0.75rem;text-transform:uppercase;color:var(--accent);margin-bottom:0.4rem;font-weight:600;">
-          Prospective Scholars (PhD / Postdoc)
-        </h4>
-        <p style="font-size:0.88rem;color:var(--ink2);line-height:1.6;">
-          Candidates holding national fellowships (CSIR/UGC-JRF, DST-INSPIRE, GATE) interested in molecular dynamics simulations, IDPs, or machine learning potentials are invited to email their CV directly.
+      <div>
+        <h3>Open to Collaborations &amp; Inquiries</h3>
+        <p style="margin-bottom:1.4rem;">
+          Whether you are a prospective student interested in computational chemistry, a researcher looking to collaborate, or have any other inquiry — feel free to reach out. I typically respond within 2–3 business days.
         </p>
+        
+        <div style="background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--accent);padding:1.2rem;border-radius:4px;margin-bottom:1.4rem;">
+          <h4 style="font-family:'DM Mono',monospace;font-size:0.75rem;text-transform:uppercase;color:var(--accent);margin-bottom:0.4rem;font-weight:600;">
+            Prospective Scholars (PhD / Postdoc)
+          </h4>
+          <p style="font-size:0.88rem;color:var(--ink2);line-height:1.6;">
+            Candidates holding national fellowships (CSIR/UGC-JRF, DST-INSPIRE, GATE) interested in molecular dynamics simulations, IDPs, or machine learning potentials are invited to email their CV directly.
+          </p>
+        </div>
       </div>
       
       <p style="font-size:0.85rem;color:var(--ink3);font-style:italic;">
@@ -89,9 +96,9 @@
       </p>
     </div>
 
-    <!-- Right Column: Contact Channels & Visitor Analytics -->
-    <div style="display:flex;flex-direction:column;gap:1.8rem;" class="fade-up">
-      <div class="contact-card-box">
+    <!-- Right Column: Contact Channels -->
+    <div class="contact-card-box fade-up">
+      <div>
         <h3>Contact Information</h3>
         <div class="contact-links">
           <a href="mailto:sdas6@gitam.edu" class="contact-link">
@@ -111,22 +118,19 @@
           </div>
         </div>
       </div>
-
-      <!-- Visitor Analytics Card -->
-      <div class="contact-card-box" style="text-align:center;padding:1.4rem;">
-        <p style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:0.8rem;font-weight:500;">
-          Visitor Analytics
-        </p>
-        <a href="https://info.flagcounter.com/LU3H" target="_blank">
-          <img src="https://s01.flagcounter.com/count2/LU3H/bg_F5F2EB/txt_000000/border_CCCCCC/columns_3/maxflags_12/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0" style="display:inline-block;max-width:100%;">
-        </a>
-      </div>
     </div>
 
   </div>
 </div>
 
-<footer><p>© 2026 <span>Dr. Suman Das</span> · Department of Chemistry, GITAM University, Visakhapatnam · Ramanujan Fellow, SERB 2023</p></footer>
+<footer>
+  <div class="footer-counter">
+    <a href="https://info.flagcounter.com/LU3H" target="_blank">
+      <img src="https://s01.flagcounter.com/count2/LU3H/bg_F5F2EB/txt_000000/border_CCCCCC/columns_3/maxflags_12/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0">
+    </a>
+  </div>
+  <p>© 2026 <span>Dr. Suman Das</span> · Department of Chemistry, GITAM University, Visakhapatnam · Ramanujan Fellow, SERB 2023</p>
+</footer>
 
 <script>
   const observer = new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*100);observer.unobserve(e.target);}});},{threshold:0.08});
