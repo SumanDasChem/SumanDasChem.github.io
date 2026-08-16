@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Research Group — Dr. Suman Das</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--bg:#f5f2eb;--bg2:#edeade;--ink:#1a1a18;--ink2:#4a4a42;--ink3:#8a8a7a;--accent:#2d6a4f;--accent2:#52b788;--accent3:#b7e4c7;--gold:#c9a84c;--card:#fffef9;--border:#d8d4c8;--shadow:0 2px 24px rgba(26,26,24,0.08);}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;overflow-x:hidden;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 4rem;background:rgba(245,242,235,0.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);}
+    .nav-logo{font-family:'DM Mono',monospace;font-size:0.78rem;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;}
+    .nav-links{display:flex;gap:2.4rem;list-style:none;}
+    .nav-links a{font-size:0.82rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink2);text-decoration:none;transition:color 0.2s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--accent);}
+    .page-header{padding:9rem 4rem 4rem;border-bottom:1px solid var(--border);}
+    .page-eyebrow{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.7rem;display:flex;align-items:center;gap:0.7rem;}
+    .page-eyebrow::before{content:'';display:inline-block;width:2rem;height:1px;background:var(--accent);}
+    h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--ink);}
+    h2{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2.5vw,1.9rem);font-weight:700;color:var(--ink);margin-bottom:1.5rem;}
+    .section-line{width:3rem;height:2px;background:var(--gold);margin-top:1rem;}
+    .section-eyebrow{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.7rem;}
+    .main{padding:4rem;max-width:1200px;margin:0 auto;}
+    .section-block{margin-bottom:5rem;}
+    .scholars-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;}
+    .scholar-card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:8px;
+      padding:2rem;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+      transition:.25s;
+    }
+    .scholar-card:hover{
+      transform:translateY(-5px);
+      box-shadow:var(--shadow);
+    }
+    .scholar-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));}
+    .scholar-photo{
+      width:140px;
+      height:140px;
+      display:block;
+      margin:0 auto 1.2rem;
+      border-radius:50%;
+      object-fit:cover;
+      object-position:center;
+      border:3px solid #ffffff;
+      box-shadow:0 0 0 1px #e5e5e5, 0 8px 20px rgba(0,0,0,.10);
+      transition:.3s ease;
+    }
+    .scholar-status{font-family:'DM Mono',monospace;font-size:0.68rem;padding:0.15rem 0.6rem;border-radius:20px;display:inline-block;margin-bottom:0.8rem;}
+    .status-current{background:var(--accent3);color:var(--accent);border:1px solid var(--accent2);}
+    .status-alumni{background:var(--bg2);color:var(--ink3);border:1px solid var(--border);}
+    .scholar-card p{font-size:0.85rem;color:var(--ink3);line-height:1.65;}
+    .scholar-meta{font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--ink3);margin-top:0.8rem;}
+    .join-card{background:var(--accent);color:#fff;border-radius:4px;padding:3rem;text-align:center;}
+    .join-card h3{font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:1rem;color:#fff;}
+    .join-card p{font-size:0.95rem;opacity:0.85;margin-bottom:1.8rem;max-width:50ch;margin-left:auto;margin-right:auto;}
+    .btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.8rem;border-radius:2px;font-size:0.82rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;transition:all 0.2s;}
+    .btn-light{background:#fff;color:var(--accent);}
+    .btn-light:hover{background:var(--accent3);transform:translateY(-1px);}
+    .fade-up{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease;}
+    .fade-up.visible{opacity:1;transform:none;}
+    footer{background:var(--ink);color:rgba(255,255,255,0.5);text-align:center;padding:2rem;font-size:0.78rem;font-family:'DM Mono',monospace;letter-spacing:0.06em;margin-top:4rem;}
+    footer span{color:var(--accent2);}
+    @media(max-width:900px){nav{padding:1rem 2rem;}.nav-links{gap:1rem;}.page-header,.main{padding:7rem 2rem 2rem;}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Dr. Suman Das</a>
+  <ul class="nav-links">
+    <li><a href="research.html">Research</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="talks.html">Talks</a></li>
+    <li><a href="teaching.html">Teaching</a></li>
+    <li><a href="scholars.html" class="active">Team</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="main">
+
+  <!-- PhD Scholars -->
+  <div class="section-block fade-up">
+    <h2>PhD Scholars</h2>
+    <div class="scholars-grid">
+      <div class="scholar-card">
+        <h3>Roja Satvika Puvvada</h3>
+        <span class="scholar-status status-current">PhD · Ongoing</span>
+        <p>Stability of proteins in aqueous Deep Eutectic Solvents</p>
+        <div class="scholar-meta">Joined: 2024</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Master's Scholars (Ongoing) -->
+  <div class="section-block fade-up">
+    <h2>Master's Scholars</h2>
+    <div class="scholars-grid">
+      <div class="scholar-card">
+        <h3>Satchith P. S.</h3>
+        <span class="scholar-status status-current">Master's Thesis · Ongoing</span>
+        <p>Amrita Vishwa Vidyapeetham, India</p>
+        <div class="scholar-meta">2025 – Present</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Alumni -->
+  <div class="section-block fade-up">
+    <h2>Alumni</h2>
+    <div class="scholars-grid">
+      
+      <div class="scholar-card">
+        <h3>S. Shanmukha Sai</h3>
+        <span class="scholar-status status-alumni">Master's · Completed</span>
+        <p>GITAM, India</p>
+        <div class="scholar-meta">2025 – 2026</div>
+      </div>
+
+      <div class="scholar-card">
+        <h3>Pavan Sai Kumar</h3>
+        <span class="scholar-status status-alumni">Master's · Completed</span>
+        <p>GITAM, India</p>
+        <div class="scholar-meta">2024 – 2025</div>
+      </div>
+      
+      <div class="scholar-card">
+        <h3>Abhishek</h3>
+        <span class="scholar-status status-alumni">Master's · Completed</span>
+        <p>IIT Kanpur, India</p>
+        <div class="scholar-meta">2023 – 2024</div>
+      </div>
+
+      <div class="scholar-card">
+        <h3>Padma Sree</h3>
+        <span class="scholar-status status-alumni">Master's · Completed</span>
+        <p>GITAM, India</p>
+        <div class="scholar-meta">2023 – 2024</div>
+      </div>
+
+      <div class="scholar-card">
+        <h3>Roja Satvika Puvvada</h3>
+        <span class="scholar-status status-alumni">Master's · Completed</span>
+        <p>GITAM, India</p>
+        <div class="scholar-meta">2023 – 2024</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Join Card -->
+  <div class="fade-up">
+    <div class="join-card">
+      <h3>Join the Group</h3>
+      <p>Motivated students interested in computational chemistry, molecular simulations, or biophysical chemistry are encouraged to reach out. PhD and project positions may be available.</p>
+      <a href="contact.html" class="btn btn-light">Get in Touch →</a>
+    </div>
+  </div>
+
+</div>
+
+<footer><p>© 2026 <span>Dr. Suman Das</span> · Department of Chemistry, GITAM University, Visakhapatnam</p></footer>
+<script>
+  const observer = new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*100);observer.unobserve(e.target);}});},{threshold:0.08});
+  document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
