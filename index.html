@@ -63,13 +63,32 @@
     .fade-up{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease;}
     .fade-up.visible{opacity:1;transform:none;}
     
+    /* MOBILE RESPONSIVENESS FIX */
     @media(max-width:900px){
       nav{padding:1rem 1.5rem;flex-direction:column;gap:0.8rem;}
       .nav-links{gap:0.8rem 1.2rem;flex-wrap:wrap;justify-content:center;}
-      .hero{grid-template-columns:1fr;padding:7.5rem 1.5rem 3rem;text-align:center;}
+      
+      .hero{
+        grid-template-columns:1fr;
+        padding:7.5rem 1.5rem 3rem;
+        text-align:center;
+        gap:2.5rem;
+      }
       .hero-bio{max-width:100%;margin-left:auto;margin-right:auto;}
       .hero-actions{justify-content:center;}
-      .hero-visual{display:none;}
+      
+      /* Photo visible and centered on mobile */
+      .hero-visual{
+        display:flex !important;
+        justify-content:center;
+        order: -1; /* Places photo above the text on mobile */
+        margin-bottom: 1rem;
+      }
+      .avatar-frame{
+        width:220px;
+        height:220px;
+      }
+      
       section.about-section{padding:4rem 1.5rem;}
       .timeline-item{grid-template-columns:1fr;gap:0.5rem;}
       .timeline-year{padding-bottom:0;}
@@ -105,7 +124,7 @@
       <a href="CV_SumanDas.pdf" class="btn btn-outline" target="_blank">Download CV</a>
     </div>
   </div>
-  <div class="hero-visual">
+  <div class="hero-visual fade-up">
     <div class="avatar-frame">
       <img src="photo.jpg" alt="Dr. Suman Das" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
     </div>   
