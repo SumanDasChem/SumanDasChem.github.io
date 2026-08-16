@@ -21,41 +21,36 @@
     h2{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2.5vw,1.9rem);font-weight:700;color:var(--ink);margin-bottom:1.5rem;}
     .section-line{width:3rem;height:2px;background:var(--gold);margin-top:1rem;}
     .section-eyebrow{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.7rem;}
-    .main{padding:4rem;}
+    .main{padding:4rem;max-width:1200px;margin:0 auto;}
     .section-block{margin-bottom:5rem;}
     .scholars-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;}
-    .scholar-card{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:2rem;position:relative;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s;}
-    .scholar-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+    .scholar-card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:8px;
+      padding:2rem;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+      transition:.25s;
+    }
+    .scholar-card:hover{
+      transform:translateY(-5px);
+      box-shadow:var(--shadow);
+    }
     .scholar-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));}
     .scholar-photo{
-    width:140px;
-    height:140px;
-    display:block;
-    margin:0 auto 1.2rem;
-    border-radius:50%;
-    object-fit:cover;
-    object-position:center;
-    border:3px solid #ffffff;
-    box-shadow:
-        0 0 0 1px #e5e5e5,
-        0 8px 20px rgba(0,0,0,.10);
-    transition:.3s ease;
-}
-    .scholar-card{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:8px;
-    padding:2rem;
-    text-align:center;
-    position:relative;
-    overflow:hidden;
-    transition:.25s;
-}
-
-.scholar-card:hover{
-    transform:translateY(-5px);
-    box-shadow:var(--shadow);
-}
+      width:140px;
+      height:140px;
+      display:block;
+      margin:0 auto 1.2rem;
+      border-radius:50%;
+      object-fit:cover;
+      object-position:center;
+      border:3px solid #ffffff;
+      box-shadow:0 0 0 1px #e5e5e5, 0 8px 20px rgba(0,0,0,.10);
+      transition:.3s ease;
+    }
     .scholar-status{font-family:'DM Mono',monospace;font-size:0.68rem;padding:0.15rem 0.6rem;border-radius:20px;display:inline-block;margin-bottom:0.8rem;}
     .status-current{background:var(--accent3);color:var(--accent);border:1px solid var(--accent2);}
     .status-alumni{background:var(--bg2);color:var(--ink3);border:1px solid var(--border);}
@@ -87,39 +82,44 @@
   </ul>
 </nav>
 
+<div class="page-header">
+  <div class="page-eyebrow">Research Team</div>
+  <h1>Group Members</h1>
+  <div class="section-line"></div>
+</div>
+
 <div class="main">
 
+  <!-- PhD Scholars -->
   <div class="section-block fade-up">
     <h2>PhD Scholars</h2>
     <div class="scholars-grid">
-
-    <div class="scholar-card">
-
-    <h3>Roja Satvika Puvvada</h3>
-
-    <span class="scholar-status status-current">
-        PhD · Ongoing
-    </span>
-
-    <p> Stabilty of proteins in aqueous Deep Eutectic Solvents</p>
-
-    <div class="scholar-meta">
-        Joined: 2024
-
+      <div class="scholar-card">
+        <h3>Roja Satvika Puvvada</h3>
+        <span class="scholar-status status-current">PhD · Ongoing</span>
+        <p>Stability of proteins in aqueous Deep Eutectic Solvents</p>
+        <div class="scholar-meta">Joined: 2024</div>
       </div>
     </div>
   </div>
 
+  <!-- Master's Scholars (Ongoing) -->
+  <div class="section-block fade-up">
+    <h2>Master's Scholars</h2>
+    <div class="scholars-grid">
+      <div class="scholar-card">
+        <h3>Satchith P. S.</h3>
+        <span class="scholar-status status-current">Master's Thesis · Ongoing</span>
+        <p>Amrita Vishwa Vidyapeetham, India</p>
+        <div class="scholar-meta">2025 – Present</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Alumni -->
   <div class="section-block fade-up">
     <h2>Alumni</h2>
     <div class="scholars-grid">
-
-      <div class="scholar-card">
-       <h3>Satchith P. S. </h3>
-        <span class="scholar-status status-alumni">Master's · Completed</span>
-        <p>Amrita Vishwa Vidyapeetham, India</p>
-        <div class="scholar-meta">2025 – 2026</div>
-      </div> 
       
       <div class="scholar-card">
         <h3>S. Shanmukha Sai</h3>
@@ -128,7 +128,7 @@
         <div class="scholar-meta">2025 – 2026</div>
       </div>
 
-       <div class="scholar-card">
+      <div class="scholar-card">
         <h3>Pavan Sai Kumar</h3>
         <span class="scholar-status status-alumni">Master's · Completed</span>
         <p>GITAM, India</p>
@@ -150,17 +150,16 @@
       </div>
 
       <div class="scholar-card">
-       <h3>Roja Satvika Puvvada</h3>
+        <h3>Roja Satvika Puvvada</h3>
         <span class="scholar-status status-alumni">Master's · Completed</span>
         <p>GITAM, India</p>
         <div class="scholar-meta">2023 – 2024</div>
       </div>
 
-      
-      
-      </div>
+    </div>
   </div>
 
+  <!-- Join Card -->
   <div class="fade-up">
     <div class="join-card">
       <h3>Join the Group</h3>
