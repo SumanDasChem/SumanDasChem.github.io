@@ -9,24 +9,23 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
     body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;overflow-x:hidden;}
+    img{max-width:100%;height:auto;display:block;}
     nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 4rem;background:rgba(245,242,235,0.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);}
-    .nav-logo{font-family:'DM Mono',monospace;font-size:0.78rem;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;}
-    .nav-links{display:flex;gap:2.4rem;list-style:none;}
+    .nav-logo{font-family:'DM Mono',monospace;font-size:0.78rem;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;font-weight:600;}
+    .nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
     .nav-links a{font-size:0.82rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink2);text-decoration:none;transition:color 0.2s;}
     .nav-links a:hover,.nav-links a.active{color:var(--accent);}
-    .page-header{padding:9rem 4rem 4rem;border-bottom:1px solid var(--border);}
+    .page-header{padding:9rem 4rem 2rem;border-bottom:1px solid var(--border);}
     .page-eyebrow{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.7rem;display:flex;align-items:center;gap:0.7rem;}
     .page-eyebrow::before{content:'';display:inline-block;width:2rem;height:1px;background:var(--accent);}
     h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--ink);}
     h2{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2.5vw,1.9rem);font-weight:700;color:var(--ink);margin-bottom:1.5rem;}
     .section-line{width:3rem;height:2px;background:var(--gold);margin-top:1rem;}
     .section-eyebrow{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.7rem;}
-    .main{padding:4rem;}
+    .main{padding:4rem;max-width:1200px;margin:0 auto;}
     .section-block{margin-bottom:5rem;}
 
-    /* ==========================
-       RESEARCH HIGHLIGHTS (FIG LEFT, TEXT RIGHT)
-    ========================== */
+    /* RESEARCH HIGHLIGHTS */
     .research-list{
       display:flex;
       flex-direction:column;
@@ -87,9 +86,7 @@
       font-weight:300;
     }
 
-    /* ==========================
-       COMPACT TOOLS SECTION
-    ========================== */
+    /* TOOLS SECTION */
     .tools-container{
       display:flex;
       flex-direction:column;
@@ -134,9 +131,7 @@
       border:1px solid var(--border);
     }
 
-    /* ==========================
-       COLLABORATIONS
-    ========================== */
+    /* COLLABORATIONS */
     .collab-grid{
       display:grid;
       grid-template-columns:repeat(2,minmax(0,1fr));
@@ -194,8 +189,9 @@
     }
 
     @media(max-width:768px){
-      nav{padding:1rem 2rem;}.nav-links{gap:1rem;}
-      .page-header,.main{padding:7rem 2rem 2rem;}
+      nav{padding:1rem 1.5rem;flex-direction:column;gap:0.8rem;}
+      .nav-links{gap:0.8rem 1.2rem;flex-wrap:wrap;justify-content:center;}
+      .page-header,.main{padding:7.5rem 1.5rem 2rem;}
       .collab-grid{grid-template-columns:1fr;}
       .tool-group{flex-direction:column;align-items:flex-start;gap:0.5rem;}
     }
@@ -204,8 +200,9 @@
 <body>
 
 <nav>
-  <span class="nav-logo">Dr. Suman Das</span>
+  <a href="./" class="nav-logo">Dr. Suman Das</a>
   <ul class="nav-links">
+    <li><a href="./">Home</a></li>
     <li><a href="research.html" class="active">Research</a></li>
     <li><a href="publications.html">Publications</a></li>
     <li><a href="team.html">Team</a></li>
@@ -215,9 +212,15 @@
   </ul>
 </nav>
 
+<div class="page-header">
+  <div class="page-eyebrow">Scientific Directions</div>
+  <h1>Research Focus</h1>
+  <div class="section-line"></div>
+</div>
+
 <div class="main">
 
-  <!-- CURRENT FOCUS AREAS WITH EMBEDDED TOC FIGURES (FIG LEFT, TEXT RIGHT) -->
+  <!-- CURRENT FOCUS AREAS WITH EMBEDDED TOC FIGURES -->
   <div class="section-block fade-up">
     <h2>Current Focus Areas</h2>
 
@@ -226,7 +229,6 @@
       <!-- Area 1: LLPS -->
       <div class="research-item">
         <div class="research-fig">
-          <!-- Inline Vector TOC Figure: LLPS -->
           <svg viewBox="0 0 500 300" width="100%" height="100%">
             <defs>
               <radialGradient id="dropletGlow" cx="50%" cy="50%" r="50%">
@@ -251,7 +253,7 @@
             <circle cx="355" cy="140" r="75" fill="url(#dropletGlow)" stroke="#2d6a4f" stroke-width="1.5" stroke-dasharray="3 2"/>
             <path d="M 310 120 C 330 90, 360 160, 390 120 S 410 160, 380 180" fill="none" stroke="#2d6a4f" stroke-width="3" stroke-linecap="round"/>
             <path d="M 330 160 C 350 120, 370 170, 340 190 S 310 150, 360 130" fill="none" stroke="#52b788" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M 320 100 C 370 110, 350 180, 390 160 S 400 110, 340 110" fill="none" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/>
+            <path d="M 320 100 C 370 110, 350 180, 390 160 S 400 110, 340 110" fill="none" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/>
             <text x="250" y="275" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="12" font-weight="500" fill="#4a4a42">Coarse-Grained &amp; All-Atom Conformational Dynamics</text>
           </svg>
         </div>
@@ -266,7 +268,6 @@
       <!-- Area 2: Protein Stabilization in DES -->
       <div class="research-item">
         <div class="research-fig">
-          <!-- Inline Vector TOC Figure: DES -->
           <svg viewBox="0 0 500 300" width="100%" height="100%">
             <defs>
               <radialGradient id="solvationShell" cx="50%" cy="50%" r="50%">
@@ -313,7 +314,6 @@
       <!-- Area 3: ML Potentials -->
       <div class="research-item">
         <div class="research-fig">
-          <!-- Inline Vector TOC Figure: ML Potentials -->
           <svg viewBox="0 0 500 300" width="100%" height="100%">
             <rect width="500" height="300" fill="#fffef9"/>
             <g transform="translate(30, 45)">
