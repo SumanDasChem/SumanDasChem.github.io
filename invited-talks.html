@@ -10,8 +10,7 @@
     html{scroll-behavior:smooth;}
     body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;overflow-x:hidden;}
     img{max-width:100%;height:auto;display:block;}
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 4rem;background:rgba(245,242,235,0.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);}
-    .nav-logo{font-family:'DM Mono',monospace;font-size:0.78rem;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;font-weight:600;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:flex-end;padding:1.1rem 4rem;background:rgba(245,242,235,0.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);}
     .nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
     .nav-links a{font-size:0.82rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink2);text-decoration:none;transition:color 0.2s;}
     .nav-links a:hover,.nav-links a.active{color:var(--accent);}
@@ -31,21 +30,23 @@
     .talk-meta{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:0.5rem;align-items:center;}
     .talk-year{font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--gold);font-weight:500;letter-spacing:0.08em;}
     .talk-type{font-family:'DM Mono',monospace;font-size:0.68rem;padding:0.15rem 0.6rem;border-radius:20px;background:var(--accent3);color:var(--accent);border:1px solid var(--accent2);}
-    .talk-item h3{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:0.3rem;line-height:1.4;}
+    .talk-type.best{background:#fef3c7;color:#92400e;border-color:#fde68a;}
+    .talk-item h3{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:var(--ink);margin-bottom:0.3rem;line-height:1.4;}
+    .talk-authors{font-size:0.85rem;color:var(--ink2);margin-bottom:0.25rem;}
     .talk-item p{font-size:0.85rem;color:var(--ink3);line-height:1.6;}
     .fade-up{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease;}
     .fade-up.visible{opacity:1;transform:none;}
     footer{background:var(--ink);color:rgba(255,255,255,0.5);text-align:center;padding:2rem;font-size:0.78rem;font-family:'DM Mono',monospace;letter-spacing:0.06em;margin-top:4rem;}
     footer span{color:var(--accent2);}
     @media(max-width:900px){
-      nav{padding:1rem 1.5rem;flex-direction:column;gap:0.8rem;}
+      nav{padding:1rem 1.5rem;flex-direction:column;gap:0.8rem;justify-content:center;}
       .nav-links{gap:0.8rem 1.2rem;flex-wrap:wrap;justify-content:center;}
       .page-header,.main{padding:7.5rem 1.5rem 2rem;}
     }
   </style>
 </head>
 <body>
-<nav style="justify-content: flex-end;">
+<nav>
   <ul class="nav-links">
     <li><a href="./">Home</a></li>
     <li><a href="research.html">Research</a></li>
@@ -59,76 +60,99 @@
 
 <div class="page-header">
   <div class="page-eyebrow">Keynotes &amp; Presentations</div>
-  <h1>Invited Talks</h1>
+  <h1>Invited Talks &amp; Presentations</h1>
   <div class="section-line"></div>
 </div>
 
 <div class="main">
 
+  <!-- Section 1: Invited Talks & Posters -->
   <div class="section-block fade-up">
-    <h2>Conference &amp; Seminar Presentations</h2>
+    <h2>Invited Talks &amp; Posters</h2>
     <div class="talk-list">
 
       <div class="talk-item">
         <div class="talk-meta">
+          <span class="talk-year">May 2026</span>
+          <span class="talk-type">Invited Poster</span>
+        </div>
+        <h3>Protein behaviour in naturally occurring deep eutectic solvents: Molecular insights into structure, dynamics and stability</h3>
+        <p>Soft Matter Young Investigators Meet (SMYIM)</p>
+      </div>
+
+      <div class="talk-item">
+        <div class="talk-meta">
+          <span class="talk-year">2025</span>
+          <span class="talk-type">Invited Talk</span>
+        </div>
+        <h3>Decoding Liquid-liquid Phase Separation in Intrinsically Disordered Proteins: A Molecular Dynamic Investigation</h3>
+        <p>IMSc Chennai, India</p>
+      </div>
+
+      <div class="talk-item">
+        <div class="talk-meta">
+          <span class="talk-year">2025</span>
+          <span class="talk-type">Invited Poster</span>
+        </div>
+        <h3>Sequence-Dependent Microphase Separation in hnRNPA1 Low-Complexity Variants: Insights from Coarse-Grained Simulations</h3>
+        <p>SoPhyC 2025 · IIT Patna, India</p>
+      </div>
+
+      <div class="talk-item">
+        <div class="talk-meta">
           <span class="talk-year">2024</span>
-          <span class="talk-type">Invited Talk</span>
+          <span class="talk-type">Invited Poster</span>
         </div>
-        <h3>Title of Talk</h3>
-        <p>Conference / Institution Name · City, Country</p>
-      </div>
-
-      <div class="talk-item">
-        <div class="talk-meta">
-          <span class="talk-year">2023</span>
-          <span class="talk-type">Invited Talk</span>
-        </div>
-        <h3>Title of Talk</h3>
-        <p>Conference / Institution Name · City, Country</p>
-      </div>
-
-      <div class="talk-item">
-        <div class="talk-meta">
-          <span class="talk-year">2022</span>
-          <span class="talk-type">Contributed Talk</span>
-        </div>
-        <h3>Title of Talk</h3>
-        <p>Conference / Institution Name · City, Country</p>
+        <h3>Sequence-Dependent Microphase Separation in hnRNPA1 Low-Complexity Variants: Insights from Coarse-Grained Simulations</h3>
+        <p>SoPhyC 2024 · IIT Bombay, India</p>
       </div>
 
     </div>
   </div>
 
+  <!-- Section 2: Selected Presentations & Awards -->
   <div class="section-block fade-up">
-    <div class="section-eyebrow">Poster Presentations</div>
-    <h2>Selected Posters</h2>
+    <div class="section-eyebrow">Awards &amp; Contributed Presentations</div>
+    <h2>Selected Presentations &amp; Posters</h2>
     <div class="talk-list">
 
       <div class="talk-item">
         <div class="talk-meta">
           <span class="talk-year">2019</span>
-          <span class="talk-type">Best Poster</span>
+          <span class="talk-type">Symposium Presentation</span>
         </div>
-        <h3>Coarse-grained Simulations of Disordered Protein Condensates</h3>
-        <p>University of Toronto · Toronto, Canada</p>
+        <h3>Coarse-grained simulations of disordered protein condensates: Effect of interaction potentials and charge pattern parameters</h3>
+        <div class="talk-authors">Suman Das, Alan N. Amin, Yi-Hsuan Lin and Hue Sun Chan*</div>
+        <p>Chemical Biophysics Symposium, 2019 · Toronto, Canada</p>
+      </div>
+
+      <div class="talk-item">
+        <div class="talk-meta">
+          <span class="talk-year">2019</span>
+          <span class="talk-type">Contributed Presentation</span>
+        </div>
+        <h3>Coarse-grained simulations of disordered protein condensates</h3>
+        <div class="talk-authors">Suman Das, Alan N. Amin, Yi-Hsuan Lin and Hue Sun Chan*</div>
+        <p>University of Toronto, 2019 · Toronto, Canada</p>
       </div>
 
       <div class="talk-item">
         <div class="talk-meta">
           <span class="talk-year">2015</span>
-          <span class="talk-type">Best Oral Presentation</span>
+          <span class="talk-type best">🏆 Best Oral Presentation</span>
         </div>
-        <h3>Title of Presentation</h3>
-        <p>Bose Fest 2015 · S. N. Bose National Centre for Basic Sciences, Kolkata</p>
+        <h3>Orientational jumps in (acetamide+electrolyte) deep eutectics: Anion dependence</h3>
+        <div class="talk-authors">Suman Das, Biswaroop Mukherjee* and Ranjit Biswas*</div>
+        <p>Bose Fest 2015 · S. N. Bose National Centre for Basic Sciences, Kolkata, India</p>
       </div>
 
       <div class="talk-item">
         <div class="talk-meta">
           <span class="talk-year">2014</span>
-          <span class="talk-type">Best Oral Presentation</span>
+          <span class="talk-type best">🏆 Best Oral Presentation</span>
         </div>
-        <h3>Title of Presentation</h3>
-        <p>Bose Fest 2014 · S. N. Bose National Centre for Basic Sciences, Kolkata</p>
+        <h3>Cluster size and lifetime distribution in (amide+electrolyte) deep eutectics: Insights from molecular dynamics simulation study</h3>
+        <p>Bose Fest 2014 · S. N. Bose National Centre for Basic Sciences, Kolkata, India</p>
       </div>
 
     </div>
@@ -136,7 +160,7 @@
 
 </div>
 
-<footer><p>© 2026 <span>Dr. Suman Das</span> · Department of Chemistry, GITAM University, Visakhapatnam</p></footer>
+<footer><p>© 2026 <span>Dr. Suman Das</span> · Department of Chemistry, GITAM University, Visakhapatnam[cite: 3]</p></footer>
 <script>
   const observer = new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*100);observer.unobserve(e.target);}});},{threshold:0.08});
   document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
