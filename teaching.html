@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teaching — Dr. Suman Das</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     :root{--bg:#f5f2eb;--bg2:#edeade;--ink:#1a1a18;--ink2:#4a4a42;--ink3:#8a8a7a;--accent:#2d6a4f;--accent2:#52b788;--accent3:#b7e4c7;--gold:#c9a84c;--card:#fffef9;--border:#d8d4c8;--shadow:0 2px 24px rgba(26,26,24,0.08);}
@@ -20,21 +21,35 @@
     h2{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2.5vw,1.9rem);font-weight:700;color:var(--ink);margin-bottom:1.5rem;}
     .section-line{width:3rem;height:2px;background:var(--gold);margin-top:1rem;}
     .section-eyebrow{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.7rem;}
-    .main{padding:4rem;}
+    .main{padding:4rem;max-width:1200px;margin:0 auto;}
     .section-block{margin-bottom:5rem;}
-    .courses-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;}
-    .course-card{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:1.8rem;transition:transform 0.2s,box-shadow 0.2s;}
-    .course-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
-    .course-code{font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--gold);letter-spacing:0.12em;margin-bottom:0.5rem;}
-    .course-card h3{font-family:'Playfair Display',serif;font-size:1.05rem;margin-bottom:0.7rem;color:var(--ink);}
-    .course-card p{font-size:0.85rem;color:var(--ink3);line-height:1.65;margin-bottom:1rem;}
-    .course-meta{display:flex;gap:0.7rem;flex-wrap:wrap;}
-    .course-pill{font-size:0.68rem;padding:0.2rem 0.7rem;border-radius:20px;background:var(--bg2);color:var(--ink3);font-family:'DM Mono',monospace;}
-    .mentoring-list{display:flex;flex-direction:column;gap:0.8rem;}
-    .mentee-item{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:1rem 1.5rem;display:flex;align-items:center;gap:1rem;}
-    .mentee-dot{width:8px;height:8px;border-radius:50%;background:var(--accent2);flex-shrink:0;}
-    .mentee-item h4{font-size:0.9rem;font-weight:500;color:var(--ink);}
-    .mentee-item p{font-size:0.78rem;color:var(--ink3);}
+    .courses-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.8rem;}
+    .course-card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:2rem;display:flex;flex-direction:column;justify-content:space-between;transition:transform 0.2s,box-shadow 0.2s;box-shadow:var(--shadow);}
+    .course-card:hover{transform:translateY(-4px);border-color:var(--accent2);}
+    .course-code{font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--gold);letter-spacing:0.12em;margin-bottom:0.5rem;font-weight:600;}
+    .course-card h3{font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:1rem;color:var(--ink);line-height:1.3;}
+    .course-meta{display:flex;gap:0.6rem;flex-wrap:wrap;margin-bottom:1.4rem;}
+    .course-pill{font-size:0.7rem;padding:0.25rem 0.75rem;border-radius:20px;background:var(--bg2);color:var(--ink2);font-family:'DM Mono',monospace;border:1px solid var(--border);}
+    
+    /* SYLLABUS PDF LINK BUTTON */
+    .syllabus-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:0.5rem;
+      font-family:'DM Mono',monospace;
+      font-size:0.75rem;
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:500;
+      padding-top:0.8rem;
+      border-top:1px dashed var(--border);
+      transition:color 0.2s;
+    }
+    .syllabus-btn:hover{
+      color:#1e4d38;
+      text-decoration:underline;
+    }
+
     .fade-up{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease;}
     .fade-up.visible{opacity:1;transform:none;}
     footer{background:var(--ink);color:rgba(255,255,255,0.5);text-align:center;padding:2rem;font-size:0.78rem;font-family:'DM Mono',monospace;letter-spacing:0.06em;}
@@ -55,41 +70,93 @@
   </ul>
 </nav>
 
+<div class="page-header">
+  <div class="page-eyebrow">Academic Instruction</div>
+  <h1>Teaching</h1>
+  <div class="section-line"></div>
+</div>
+
 <div class="main">
 
   <div class="section-block fade-up">
     <h2>Courses Taught</h2>
     <div class="courses-grid">
-       <div class="course-card">
-       <div class="course-code">LIBERAL EDUCATION · UG</div>
-        <h3>Role of Chemistry In Daily Life</h3>
-        <p></p>
-        <div class="course-meta"><span class="course-pill">Undergraduate</span><span class="course-pill">GITAM</span></div>
-      </div>
-        <div class="course-card">
-       <div class="course-code">LIBERAL EDUCATION · UG</div>
-        <h3>Introduction To Programming</h3>
-        <p></p>
-        <div class="course-meta"><span class="course-pill">Undergraduate</span><span class="course-pill">GITAM</span></div>
-      </div>
-        <div class="course-card">
-       <div class="course-code">LIBERAL EDUCATION · UG</div>
-        <h3>Introduction To Data Science</h3>
-        <p></p>
-        <div class="course-meta"><span class="course-pill">Undergraduate</span><span class="course-pill">GITAM</span></div>
-      </div>
+      
+      <!-- Course 1 -->
       <div class="course-card">
-        <div class="course-code">CHEM · UG</div>
-        <h3>Physical Chemistry 1</h3>
-        <p></p>
-        <div class="course-meta"><span class="course-pill">Undergraduate</span><span class="course-pill">GITAM</span></div>
+        <div>
+          <div class="course-code">LIBERAL EDUCATION · UG</div>
+          <h3>Role of Chemistry In Daily Life</h3>
+          <div class="course-meta">
+            <span class="course-pill">Undergraduate</span>
+            <span class="course-pill">GITAM</span>
+          </div>
+        </div>
+        <a href="syllabus_chemistry_daily_life.pdf" class="syllabus-btn" target="_blank">
+          📄 Download Syllabus (PDF) →
+        </a>
       </div>
-        <div class="course-card">
-        <div class="course-code">CHEM · UG</div>
-        <h3>Physical Chemistry 2</h3>
-        <p></p>
-        <div class="course-meta"><span class="course-pill">Undergraduate</span><span class="course-pill">GITAM</span></div>
+
+      <!-- Course 2 -->
+      <div class="course-card">
+        <div>
+          <div class="course-code">LIBERAL EDUCATION · UG</div>
+          <h3>Introduction To Programming</h3>
+          <div class="course-meta">
+            <span class="course-pill">Undergraduate</span>
+            <span class="course-pill">GITAM</span>
+          </div>
+        </div>
+        <a href="syllabus_intro_programming.pdf" class="syllabus-btn" target="_blank">
+          📄 Download Syllabus (PDF) →
+        </a>
       </div>
+
+      <!-- Course 3 -->
+      <div class="course-card">
+        <div>
+          <div class="course-code">LIBERAL EDUCATION · UG</div>
+          <h3>Introduction To Data Science</h3>
+          <div class="course-meta">
+            <span class="course-pill">Undergraduate</span>
+            <span class="course-pill">GITAM</span>
+          </div>
+        </div>
+        <a href="syllabus_intro_data_science.pdf" class="syllabus-btn" target="_blank">
+          📄 Download Syllabus (PDF) →
+        </a>
+      </div>
+
+      <!-- Course 4 -->
+      <div class="course-card">
+        <div>
+          <div class="course-code">CHEM · UG</div>
+          <h3>Physical Chemistry 1</h3>
+          <div class="course-meta">
+            <span class="course-pill">Undergraduate</span>
+            <span class="course-pill">GITAM</span>
+          </div>
+        </div>
+        <a href="syllabus_physical_chemistry_1.pdf" class="syllabus-btn" target="_blank">
+          📄 Download Syllabus (PDF) →
+        </a>
+      </div>
+
+      <!-- Course 5 -->
+      <div class="course-card">
+        <div>
+          <div class="course-code">CHEM · UG</div>
+          <h3>Physical Chemistry 2</h3>
+          <div class="course-meta">
+            <span class="course-pill">Undergraduate</span>
+            <span class="course-pill">GITAM</span>
+          </div>
+        </div>
+        <a href="syllabus_physical_chemistry_2.pdf" class="syllabus-btn" target="_blank">
+          📄 Download Syllabus (PDF) →
+        </a>
+      </div>
+
     </div>
   </div>
 
@@ -100,4 +167,5 @@
   const observer = new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*100);observer.unobserve(e.target);}});},{threshold:0.08});
   document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
 </script>
-</body></html>
+</body>
+</html>
